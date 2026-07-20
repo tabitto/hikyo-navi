@@ -1,0 +1,68 @@
+export const spots = [
+  {
+    id: 1,
+    name: "下栗の里",
+    prefecture: "長野県",
+    walking: "2.4km",
+    train: "約5時間",
+    difficulty: "★★★★☆",
+    image: "/images/shimoguri.jpg",
+    access: "飯田駅 → 遠山郷方面バス → 下栗口 → 徒歩約2.4km",
+    memo: "坂道がかなり急なので歩きやすい靴がおすすめ。帰りのバス時刻は必ず確認。",
+    route: [
+      {
+        icon: "🚄",
+        place: "東京駅",
+        detail: "東海道新幹線で豊橋駅へ",
+      },
+      {
+        icon: "🚆",
+        place: "豊橋駅",
+        detail: "飯田線で飯田駅へ",
+      },
+      {
+        icon: "🚌",
+        place: "飯田駅",
+        detail: "遠山郷方面のバスに乗車",
+      },
+      {
+        icon: "🚶",
+        place: "下栗口",
+        detail: "下栗の里まで徒歩約2.4km",
+      },
+      {
+        icon: "🏡",
+        place: "下栗の里",
+        detail: "到着",
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "椎葉村",
+    prefecture: "宮崎県",
+    walking: "1.8km",
+    train: "約7時間",
+    difficulty: "★★★★★",
+    image: "/images/shiiba.jpg",
+    access: "日向市駅 → 路線バス → 椎葉村",
+    memo: "バスの本数が少ないため、事前に時刻表を確認しておくと安心です。",
+    route: [
+      {
+        icon: "🚆",
+        place: "宮崎駅",
+        detail: "日豊本線で日向市駅へ",
+      },
+      {
+        icon: "🚌",
+        place: "日向市駅",
+        detail: "椎葉村方面の路線バスに乗車",
+      },
+      {
+        icon: "🏡",
+        place: "椎葉村",
+        detail: "到着",
+      },
+    ],
+  },
+];

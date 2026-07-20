@@ -1,12 +1,15 @@
 "use client";
+import { useSearchParams } from "next/navigation";
 
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function SearchPage() {
+  const searchParams = useSearchParams();
+const walkingFromUrl = searchParams.get("walking");
   const [prefecture, setPrefecture] = useState("");
-  const [walkingMax, setWalkingMax] = useState("");
+  const [walkingMax, setWalkingMax] = useState(walkingFromUrl ?? "");
   const [difficulty, setDifficulty] = useState("");
   const [keyword, setKeyword] = useState("");
   const router = useRouter();

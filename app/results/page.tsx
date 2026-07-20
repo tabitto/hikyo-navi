@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { spots } from "@/data/spots";
 import FavoriteButton from "../components/FavoriteButton";
+import { useSearchParams } from "next/navigation";
 
 type Props = {
   searchParams: Promise<{

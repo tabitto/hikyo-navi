@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { spots } from "@/data/spots";
 import FavoriteButton from "@/app/components/FavoriteButton";
+import HikyoKarte from "@/app/components/HikyoKarte";
+import RecommendedItems from "@/app/components/RecommendedItems";
 
 type Props = {
   params: Promise<{
@@ -50,13 +52,23 @@ export default async function DetailPage({ params }: Props) {
           {spot.name}
         </h1>
 
-        <div className="mt-6 space-y-2">
-          <p>🚆 {spot.train}</p>
-          <p>🚶 徒歩 {spot.walking}</p>
-          <p>⭐ {spot.difficulty}</p>
-        </div>
 
-        <FavoriteButton spotId={spot.id} />
+
+ <HikyoKarte spot={spot} />
+ 
+ <RecommendedItems items={spot.recommendedItems} />
+        
+<h2 className="mt-8 text-2xl font-bold">
+  地図
+</h2>
+
+<iframe
+  src={spot.mapUrl}
+  width="100%"
+  height="400"
+  loading="lazy"
+  className="mt-4 rounded-xl border"
+/>
         <hr className="my-8" />
 
 <h2 className="text-2xl font-bold">

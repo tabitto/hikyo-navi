@@ -6,12 +6,13 @@ import SpotCard from "../components/SpotCard";
 
 type Props = {
   searchParams: Promise<{
-    prefecture?: string;
-    walkingMax?: string;
-    difficulty?: string;
-    keyword?: string;
-    sort?: string;
-  }>;
+  prefecture?: string;
+  walkingMax?: string;
+  difficulty?: string;
+  keyword?: string;
+  sort?: string;
+  page?: string;
+}>;
 };
 export default async function ResultsPage({ searchParams }: Props) {
   const {
@@ -20,6 +21,7 @@ export default async function ResultsPage({ searchParams }: Props) {
   difficulty,
   keyword,
   sort,
+  page,
 } = await searchParams;
 
   console.log(spots.map((spot) => ({
@@ -50,8 +52,19 @@ return (
   matchesKeyword
 );
   });
+  const itemsPerPage = 2;
 
+const currentPage = Number(page ?? "1");
 
+const startIndex = (currentPage - 1) * itemsPerPage;
+const endIndex = startIndex + itemsPerPage;
+
+const paginatedSpots = filteredSpots.slice(startIndex, endIndex);
+const totalPages = Math.ceil(filteredSpots.length / itemsPerPage);
+const pageNumbers = Array.from(
+  { length: totalPages },
+  (_, index) => index + 1
+);
   const getWalkingDistance = (walking: string) => {
   const match = walking.match(/[\d.]+/);
   return match ? Number(match[0]) : 9999;
@@ -85,9 +98,20 @@ if (sort === "walking") {
             ← ホームへ戻る
           </Link>
 
-          <Link href="/search" className="text-green-700 underline">
-            検索条件を変更
-          </Link>
+          <Link
+  href={`/search?prefecture=${encodeURIComponent(
+    prefecture ?? ""
+  )}&walkingMax=${encodeURIComponent(
+    walkingMax ?? ""
+  )}&difficulty=${encodeURIComponent(
+    difficulty ?? ""
+  )}&keyword=${encodeURIComponent(
+    keyword ?? ""
+  )}&sort=${encodeURIComponent(sort ?? "")}`}
+  className="text-green-700 underline hover:text-green-900"
+>
+  検索条件を変更する
+</Link>
         </div>
 
         <h1 className="mb-8 text-4xl font-bold text-green-800">
@@ -103,12 +127,17 @@ if (sort === "walking") {
               条件に合う秘境が見つかりませんでした。
             </p>
 
-            <Link
-              href="/search"
-              className="mt-4 inline-block text-green-700 underline"
-            >
-              検索条件を変更する
-            </Link>
+           <Link
+  href={`/search?prefecture=${encodeURIComponent(prefecture ?? "")}&walkingMax=${encodeURIComponent(
+    walkingMax ?? ""
+  )}&difficulty=${encodeURIComponent(
+    difficulty ?? ""
+  )}&keyword=${encodeURIComponent(keyword ?? "")}&sort=${encodeURIComponent(
+    sort ?? ""
+  )}`}
+>
+  検索条件を変更する
+</Link>
           </div>
         ) : (
           <div className="space-y-6">
@@ -122,13 +151,77 @@ if (sort === "walking") {
     </p>
   </div>
 ) : (
-  filteredSpots.map((spot) => (
+  paginatedSpots.map((spot) => (
     <SpotCard key={spot.id} spot={spot} />
   ))
 )}
-          </div>
-        )}
-      </div>
-    </main>
-  );
+<div className="mt-8 flex justify-center gap-4">
+  {currentPage > 1 && (
+    <Link
+      href={`/results?prefecture=${encodeURIComponent(
+        prefecture ?? ""
+      )}&walkingMax=${encodeURIComponent(
+        walkingMax ?? ""
+      )}&difficulty=${encodeURIComponent(
+        difficulty ?? ""
+      )}&keyword=${encodeURIComponent(
+        keyword ?? ""
+      )}&sort=${encodeURIComponent(
+        sort ?? ""
+      )}&page=${currentPage - 1}`}
+      className="rounded-lg border bg-white px-4 py-2 text-green-700"
+    >
+      前へ
+    </Link>
+  )}
+  <div className="flex gap-2">
+  {pageNumbers.map((pageNumber) => (
+    <Link
+      key={pageNumber}
+      href={`/results?prefecture=${encodeURIComponent(
+        prefecture ?? ""
+      )}&walkingMax=${encodeURIComponent(
+        walkingMax ?? ""
+      )}&difficulty=${encodeURIComponent(
+        difficulty ?? ""
+      )}&keyword=${encodeURIComponent(
+        keyword ?? ""
+      )}&sort=${encodeURIComponent(
+        sort ?? ""
+      )}&page=${pageNumber}`}
+      className={`rounded-lg px-4 py-2 ${
+        currentPage === pageNumber
+          ? "bg-green-700 text-white"
+          : "border bg-white text-green-700"
+      }`}
+    >
+      {pageNumber}
+    </Link>
+  ))}
+</div>
+
+  {currentPage < totalPages && (
+    <Link
+      href={`/results?prefecture=${encodeURIComponent(
+        prefecture ?? ""
+      )}&walkingMax=${encodeURIComponent(
+        walkingMax ?? ""
+      )}&difficulty=${encodeURIComponent(
+        difficulty ?? ""
+      )}&keyword=${encodeURIComponent(
+        keyword ?? ""
+      )}&sort=${encodeURIComponent(
+        sort ?? ""
+      )}&page=${currentPage + 1}`}
+      className="rounded-lg bg-green-700 px-4 py-2 text-white"
+    >
+      次へ
+    </Link>
+  )}
+</div>
+     </div>
+  )}
+</div>
+</main>
+);
 }

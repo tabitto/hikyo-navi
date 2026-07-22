@@ -7,13 +7,16 @@ import { useRouter } from "next/navigation";
 
 export default function SearchPage() {
   const searchParams = useSearchParams();
-const walkingFromUrl = searchParams.get("walking");
-  const [prefecture, setPrefecture] = useState("");
-  const [walkingMax, setWalkingMax] = useState(walkingFromUrl ?? "");
-  const [difficulty, setDifficulty] = useState("");
-  const [keyword, setKeyword] = useState("");
-  
-  const [sort, setSort] = useState("");
+const walkingFromUrl = searchParams.get("walkingMax");
+  const prefectureFromUrl = searchParams.get("prefecture");
+const difficultyFromUrl = searchParams.get("difficulty");
+const keywordFromUrl = searchParams.get("keyword");
+const sortFromUrl = searchParams.get("sort");
+const [prefecture, setPrefecture] = useState(prefectureFromUrl ?? "");
+const [walkingMax, setWalkingMax] = useState(walkingFromUrl ?? "");
+const [difficulty, setDifficulty] = useState(difficultyFromUrl ?? "");
+const [keyword, setKeyword] = useState(keywordFromUrl ?? "");
+const [sort, setSort] = useState(sortFromUrl ?? "");
   const router = useRouter();
 
   const handleSearch = () => {
@@ -85,6 +88,8 @@ if (sort) {
             >
               <option value="">すべて</option>
               <option value="長野県">長野県</option>
+              <option value="高知県">高知県</option>
+              <option value="徳島県">徳島県</option>
               <option value="宮崎県">宮崎県</option>
             </select>
           </div>

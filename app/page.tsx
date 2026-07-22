@@ -2,6 +2,7 @@ import Image from "next/image";
 import { spots } from "@/data/spots";
 import Link from "next/link";
 import FavoriteButton from "@/app/components/FavoriteButton";
+import SpotCard from "./components/SpotCard";
 
 export default function Home() {
   return (
@@ -63,48 +64,7 @@ export default function Home() {
 </h2>
 <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
   {spots.slice(0, 3).map((spot) => (
-    <Link
-      key={spot.id}
-      href={`/detail/${spot.id}`}
-      className="block rounded-xl border bg-white p-4 shadow hover:shadow-lg"
-    >
-      <div className="relative mb-4">
-  <Image
-    src={spot.image}
-    alt={spot.name}
-    width={600}
-    height={300}
-    className="h-48 w-full rounded-lg object-cover"
-  />
-
-  {spot.id === 1 && (
-    <span className="absolute left-3 top-3 rounded-full bg-yellow-400 px-3 py-1 text-sm font-bold text-black">
-      👑 人気No.1
-    </span>
-  )}
-</div>
-      <div className="flex items-center justify-between">
-  <h3 className="text-xl font-bold">
-    {spot.name}
-  </h3>
-
-  <FavoriteButton spotId={spot.id} />
-</div>
-
-      <p className="mt-1 text-gray-600">
-        📍 {spot.prefecture}
-      </p>
-
-      <p className="mt-1 text-gray-600">
-        🚶 {spot.walking}
-      </p>
-      <p className="mt-1 text-gray-600">
-  ⭐ 難易度 {spot.difficulty}
-</p>
-      <p className="mt-4 font-bold text-green-700">
-  詳細を見る →
-</p>
-    </Link>
+    <SpotCard key={spot.id} spot={spot} />
   ))}
 </div>
         </div>

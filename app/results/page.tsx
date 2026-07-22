@@ -1,10 +1,8 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { spots } from "@/data/spots";
 import FavoriteButton from "../components/FavoriteButton";
-import { useSearchParams } from "next/navigation";
+import SpotCard from "../components/SpotCard";
 
 type Props = {
   searchParams: Promise<{
@@ -12,13 +10,23 @@ type Props = {
     walkingMax?: string;
     difficulty?: string;
     keyword?: string;
+    sort?: string;
   }>;
 };
 export default async function ResultsPage({ searchParams }: Props) {
-  const { prefecture, walkingMax, difficulty, keyword } =
-  await searchParams;
+  const {
+  prefecture,
+  walkingMax,
+  difficulty,
+  keyword,
+  sort,
+} = await searchParams;
 
-  const filteredSpots = spots.filter((spot) => {
+  console.log(spots.map((spot) => ({
+  name: spot?.name,
+  sortName: spot?.sortName,
+})));
+const filteredSpots = spots.filter((spot) => {
     const matchesPrefecture =
       !prefecture || spot.prefecture === prefecture;
 
@@ -43,6 +51,32 @@ return (
 );
   });
 
+
+  const getWalkingDistance = (walking: string) => {
+  const match = walking.match(/[\d.]+/);
+  return match ? Number(match[0]) : 9999;
+};
+
+if (sort === "walking") {
+  filteredSpots.sort(
+    (a, b) => a.walkingDistance - b.walkingDistance
+  );
+} else if (sort === "difficultyAsc") {
+  filteredSpots.sort(
+    (a, b) => a.difficultyLevel - b.difficultyLevel
+  );
+} else if (sort === "difficultyDesc") {
+  filteredSpots.sort(
+    (a, b) => b.difficultyLevel - a.difficultyLevel
+  );
+} else if (sort === "name") {
+  filteredSpots.sort((a, b) =>
+    (a.sortName ?? a.name).localeCompare(
+      b.sortName ?? b.name,
+      "ja"
+    )
+  );
+}
   return (
     <main className="min-h-screen bg-green-50 p-8">
       <div className="mx-auto max-w-3xl">
@@ -78,37 +112,20 @@ return (
           </div>
         ) : (
           <div className="space-y-6">
-            {filteredSpots.map((spot) => (
-              <div
-                key={spot.id}
-                className="rounded-xl bg-white p-6 shadow"
-              >
-                <Image
-                  src={spot.image}
-                  alt={spot.name}
-                  width={800}
-                  height={500}
-                  className="mb-4 w-full rounded-lg"
-                />
-
-                <h2 className="text-2xl font-bold">
-                  {spot.name}
-                </h2>
-
-                <p className="mt-2">{spot.prefecture}</p>
-                <p>🚶 徒歩 {spot.walking}</p>
-                <p>🚆 {spot.train}</p>
-                <p>⭐ {spot.difficulty}</p>
-
-                <FavoriteButton spotId={spot.id} />
-                <Link
-                  href={`/detail/${spot.id}`}
-                  className="mt-4 inline-block rounded-lg bg-green-700 px-5 py-3 font-bold text-white hover:bg-green-800"
-                >
-                  詳細を見る
-                </Link>
-              </div>
-            ))}
+       {filteredSpots.length === 0 ? (
+  <div className="rounded-xl bg-gray-100 p-8 text-center">
+    <p className="text-xl font-semibold">
+      🔍 該当する秘境が見つかりませんでした
+    </p>
+    <p className="mt-2 text-gray-600">
+      検索条件を変更してもう一度お試しください。
+    </p>
+  </div>
+) : (
+  filteredSpots.map((spot) => (
+    <SpotCard key={spot.id} spot={spot} />
+  ))
+)}
           </div>
         )}
       </div>

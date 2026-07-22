@@ -12,6 +12,8 @@ const walkingFromUrl = searchParams.get("walking");
   const [walkingMax, setWalkingMax] = useState(walkingFromUrl ?? "");
   const [difficulty, setDifficulty] = useState("");
   const [keyword, setKeyword] = useState("");
+  
+  const [sort, setSort] = useState("");
   const router = useRouter();
 
   const handleSearch = () => {
@@ -30,8 +32,18 @@ const walkingFromUrl = searchParams.get("walking");
      if (keyword) {
   params.set("keyword", keyword);
 }
+if (sort) {
+  params.set("sort", sort);
+}
     router.push(`/results?${params.toString()}`);
   };
+  const handleReset = () => {
+  setPrefecture("");
+  setWalkingMax("");
+  setDifficulty("");
+  setKeyword("");
+  setSort("");
+};
 
   return (
     <main className="min-h-screen bg-green-50 p-8">
@@ -113,12 +125,34 @@ const walkingFromUrl = searchParams.get("walking");
   </select>
 </div>
 
+<div>
+  <label className="mb-2 block font-semibold">並び替え</label>
+  <select
+  value={sort}
+  onChange={(event) => setSort(event.target.value)}
+  className="w-full rounded-lg border p-2"
+>
+  <option value="">おすすめ順</option>
+<option value="walking">徒歩距離が短い順</option>
+<option value="difficultyAsc">難易度が低い順</option>
+<option value="difficultyDesc">難易度が高い順</option>
+<option value="name">名前順</option>
+</select>
+</div>
+
           <button
             onClick={handleSearch}
             className="w-full rounded-lg bg-green-700 px-6 py-3 font-bold text-white hover:bg-green-800"
           >
             検索する
           </button>
+          <button
+  type="button"
+  onClick={handleReset}
+  className="rounded-lg border border-gray-300 bg-white px-6 py-3 text-gray-700 hover:bg-gray-100"
+>
+  条件をリセット
+</button>
         </div>
       </div>
     </main>

@@ -5,14 +5,14 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const heroImages = [
-  "/images/hero.jpg",
+  "/images/hero.JPG",
   "/images/shimoguri.jpg",
   "/images/shiiba.jpg",
   "/images/aoni.jpg",
 ];
 
 export default function Hero() {
-  const [heroImage, setHeroImage] = useState("/images/hero.jpg");
+  const [heroImage, setHeroImage] = useState("/images/hero.JPG");
 
   useEffect(() => {
     const randomImage =

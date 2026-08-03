@@ -11,7 +11,7 @@ export default function Home() {
 <div className="rounded-3xl bg-white px-6 py-10 text-center shadow-sm"></div>
 <div className="relative mb-8 h-64 overflow-hidden rounded-2xl sm:h-80">
   <Image
-    src="/images/hero.jpg"
+    src="/images/hero.JPG"
     alt="車なしで行ける秘境の風景"
     fill
     priority

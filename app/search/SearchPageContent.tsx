@@ -1,23 +1,30 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
-
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function SearchPageContent() {
-  const searchParams = useSearchParams();
-const walkingFromUrl = searchParams.get("walkingMax");
-  const prefectureFromUrl = searchParams.get("prefecture");
-const difficultyFromUrl = searchParams.get("difficulty");
-const keywordFromUrl = searchParams.get("keyword");
-const sortFromUrl = searchParams.get("sort");
-const [prefecture, setPrefecture] = useState(prefectureFromUrl ?? "");
-const [walkingMax, setWalkingMax] = useState(walkingFromUrl ?? "");
-const [difficulty, setDifficulty] = useState(difficultyFromUrl ?? "");
-const [keyword, setKeyword] = useState(keywordFromUrl ?? "");
-const [sort, setSort] = useState(sortFromUrl ?? "");
+type Props = {
+  initialPrefecture: string;
+  initialWalkingMax: string;
+  initialDifficulty: string;
+  initialKeyword: string;
+  initialSort: string;
+};
+
+export default function SearchPageContent({
+  initialPrefecture,
+  initialWalkingMax,
+  initialDifficulty,
+  initialKeyword,
+  initialSort,
+}: Props) {
+  const [prefecture, setPrefecture] = useState(initialPrefecture);
+  const [walkingMax, setWalkingMax] = useState(initialWalkingMax);
+  const [difficulty, setDifficulty] = useState(initialDifficulty);
+  const [keyword, setKeyword] = useState(initialKeyword);
+  const [sort, setSort] = useState(initialSort);
+
   const router = useRouter();
 
   const handleSearch = () => {

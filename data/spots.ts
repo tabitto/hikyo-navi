@@ -15,7 +15,7 @@ export const spots = [
   "歩きやすい靴",
   "レインコートなどの雨具",
 ],
-    image: "/images/shimoguri.jpg",
+    image: "/images/shimoguri.JPG",
     mapUrl: "https://www.google.com/maps?q=下栗の里&output=embed",
     busFrequency: "1日4本",
 convenienceStore: "なし",
@@ -95,7 +95,7 @@ costs: [
     train: "宮崎空港から約4時間20分",
     difficulty: "★★★★★",
 　　difficultyLevel: 5,
-    image: "/images/shiiba.jpg",
+    image: "/images/shiiba.JPG",
     access: "日向市駅 → 路線バス → 椎葉村",
     memo: "バスの本数が1日2本と少ないため、事前に時刻表を確認しておくと安心です。",
     pitfalls: [
@@ -171,7 +171,7 @@ stayTime: "1泊",
   train: "新宿から約6時間",
   difficulty: "★★★☆☆",
   difficultyLevel: 3,
-  image: "/images/aoni.jpg",
+  image: "/images/aoni.JPG",
   access: "信濃森上駅 → デマンド交通 → 青鬼集落",
   memo: "デマンド交通は事前予約が必要です。アプリから予約することができます。",
   pitfalls: [
@@ -338,7 +338,7 @@ costs: [
   difficulty: "★☆☆☆☆",
   difficultyLevel: 1,
 
-  image: "/images/akiyama.jpg",
+  image: "/images/akiyama.JPG",
 
   access:
     "東京駅 → 飯山駅 → 津南駅 → 見玉行きバス → 切明温泉",
@@ -447,7 +447,7 @@ costs: [
   difficulty: "★★★☆☆",
   difficultyLevel: 3,
 
-  image: "/images/kitsune.jpg",
+  image: "/images/kitsune.JPG",
 
   access:
     "高知駅 → 中村駅 → デマンドバス → 古民家宿 寝つきいいキツネ",

@@ -136,7 +136,7 @@ if (sort === "walking") {
     sort ?? ""
   )}`}
 >
-  検索条件を変更する
+  検索条件をリセットする
 </Link>
           </div>
         ) : (
@@ -149,6 +149,12 @@ if (sort === "walking") {
     <p className="mt-2 text-gray-600">
       検索条件を変更してもう一度お試しください。
     </p>
+    <Link
+  href="/search"
+  className="mt-4 inline-block rounded-lg bg-green-700 px-5 py-3 font-semibold text-white hover:bg-green-800"
+>
+  検索条件を変更する
+</Link>
   </div>
 ) : (
   paginatedSpots.map((spot) => (

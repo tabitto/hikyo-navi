@@ -21,7 +21,8 @@ export default function Hero() {
     setHeroImage(randomImage);
   }, []);
 
-  return (
+return (
+  <div>
     <div className="relative mb-8 h-64 overflow-hidden rounded-2xl sm:h-80">
       <Image
         src={heroImage}
@@ -42,15 +43,16 @@ export default function Hero() {
           <p className="mt-4 text-base font-medium text-white drop-shadow sm:text-lg">
             車がなくても行ける秘境を探そう。
           </p>
-
-          <Link
-            href="/search"
-            className="mx-auto mt-8 block w-full max-w-sm rounded-xl bg-white/90 px-8 py-4 font-bold text-green-800 shadow-xl backdrop-blur-sm transition hover:bg-white"
-          >
-            秘境を探す
-          </Link>
         </div>
       </div>
     </div>
-  );
+
+    <Link
+      href="/search"
+      className="mx-auto block w-full max-w-sm rounded-xl bg-green-700 px-8 py-4 text-center font-bold text-white transition hover:bg-green-800"
+    >
+      秘境を探す
+    </Link>
+  </div>
+);
 }

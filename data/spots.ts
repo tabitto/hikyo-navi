@@ -105,7 +105,7 @@ costs: [
   "宮交バス1日乗車券がお得",
   "村の中の村営バスは現金支払いのみ",
 ],
-noteUrl: "",
+noteUrl: "https://note.com/tabibitotubyaki/n/n9c990d5718c9",
 modelCourse: [
   "13:09 宮崎空港駅 出発（特急ひゅうが4号）",
   "14:19 日向市駅 到着",
@@ -181,7 +181,7 @@ stayTime: "1泊",
   "集落に食事ができるお店はない",
   
 ],
-noteUrl: "",
+noteUrl: "https://note.com/tabibitotubyaki/n/n52b0276e6554",
 modelCourse: [
   "10:00 新宿駅 出発（特急あずさ松本行き）",
   "12:37 松本駅 到着(乗り換え時間を利用してランチ)",
@@ -461,7 +461,7 @@ pitfalls: [
   "デマンドバスは湯約生",
   "素泊まりプランしかないので食料の持ち込みが必須",
 ],
-noteUrl: "",
+noteUrl: "https://note.com/tabibitotubyaki/n/nf050bcc6d52e",
 modelCourse: [
   "8:20 高知駅 出発（特急あしずり中村行き）",
   "10:04 中村駅 到着（レンタサイクルで観光と食料の買いこみ）",

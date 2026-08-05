@@ -163,6 +163,27 @@ export default async function DetailPage({ params }: Props) {
     ))}
   </ul>
 </div>
+{spot.noteUrl && (
+  <div className="mt-10 rounded-2xl border border-yellow-200 bg-yellow-50 p-6">
+    <h2 className="text-xl font-bold text-yellow-900">
+      📖 実際に行った体験をもっと詳しく知りたい方へ
+    </h2>
+
+    <p className="mt-3 text-gray-700">
+      現地で困ったことや、公共交通でスムーズに行くコツ、
+      実際の旅の流れをnoteにまとめています。
+    </p>
+
+    <a
+      href={spot.noteUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-5 inline-block rounded-xl bg-yellow-500 px-6 py-3 font-bold text-white transition hover:bg-yellow-600"
+    >
+      車なしで行くための完全ガイドを見る →
+    </a>
+  </div>
+)}
 
           <hr className="my-8" />
 

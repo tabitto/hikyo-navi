@@ -15,7 +15,7 @@ export const spots = [
   "歩きやすい靴",
   "レインコートなどの雨具",
 ],
-    image: "/images/shimoguri.JPG",
+    image: "/images/shimoguri.jpg",
     mapUrl: "https://www.google.com/maps?q=下栗の里&output=embed",
     busFrequency: "1日4本",
 convenienceStore: "なし",

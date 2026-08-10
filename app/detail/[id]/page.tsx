@@ -1,3 +1,4 @@
+import RouteToEntranceButton from "@/app/components/RouteToEntranceButton";
 import Link from "next/link";
 import Image from "next/image";
 import { spots } from "@/data/spots";
@@ -81,6 +82,39 @@ export default async function DetailPage({ params }: Props) {
           <p className="mt-3 leading-8">
             {spot.access}
           </p>
+          <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-6">
+  <h2 className="text-xl font-bold text-blue-900">
+    🚉 秘境への入口
+  </h2>
+
+  <p className="mt-2 text-gray-700">
+    まずは公共交通で「{spot.routeEntrance}」を目指します。
+    ここから先は、秘境ナビの実体験ルートを参考にしてください。
+  </p>
+
+  <RouteToEntranceButton
+  entranceName={spot.routeEntrance}
+/>
+
+<div className="mt-6 border-t border-blue-200 pt-5">
+  <p className="font-bold text-green-800">
+    ここから先は秘境ナビで案内します
+  </p>
+
+  <p className="mt-2 text-sm leading-6 text-gray-700">
+    Googleマップでは表示されないデマンド交通や、
+    予約が必要な移動手段を含めて紹介しています。
+  </p>
+
+  <a
+    href="#hikyo-route"
+    className="mt-4 inline-block rounded-xl bg-green-700 px-6 py-3 font-bold text-white transition hover:bg-green-800"
+  >
+    入口から先のルートを見る ↓
+  </a>
+</div>
+
+</div>
           <div className="mt-8 rounded-xl border bg-white p-6 shadow-sm">
   <h2 className="text-2xl font-bold">
     モデルコース
@@ -187,9 +221,16 @@ export default async function DetailPage({ params }: Props) {
 
           <hr className="my-8" />
 
-          <h2 className="mb-6 text-2xl font-bold">
-            実際に使ったルート
-          </h2>
+          <h2
+  id="hikyo-route"
+  className="mb-3 scroll-mt-6 text-2xl font-bold"
+>
+  🚶 {spot.routeEntrance}から秘境までのルート
+</h2>
+
+<p className="mb-6 text-gray-700">
+  ここから先は、実際に利用した交通手段をもとに案内します。
+</p>
 
           <div className="space-y-0">
             {spot.route.map((route, index) => (

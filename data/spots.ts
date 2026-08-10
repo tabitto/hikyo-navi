@@ -9,6 +9,7 @@ export const spots = [
     train: "新宿から約8時間",
     difficulty: "★★★★☆",
     difficultyLevel: 4,
+    routeEntrance: "飯田駅",
     recommendedItems: [
   "飲み物",
   "食べ物",
@@ -96,6 +97,7 @@ costs: [
     train: "宮崎空港から約4時間20分",
     difficulty: "★★★★★",
 　　difficultyLevel: 5,
+   routeEntrance: "日向市駅",
     image: "/images/shiiba.JPG",
     access: "日向市駅 → 路線バス → 椎葉村",
     memo: "バスの本数が1日2本と少ないため、事前に時刻表を確認しておくと安心です。",
@@ -177,6 +179,7 @@ stayTime: "1泊",
   train: "新宿から約6時間",
   difficulty: "★★★☆☆",
   difficultyLevel: 3,
+  routeEntrance: "信濃森上駅",
   image: "/images/aoni.JPG",
   access: "信濃森上駅 → デマンド交通 → 青鬼集落",
   memo: "デマンド交通は事前予約が必要です。アプリから予約することができます。",
@@ -260,6 +263,7 @@ warnings: [
   train: "岡山駅から約3時間15分（乗り換え、宿泊時間を除く）",
   difficulty: "★★☆☆☆",
   difficultyLevel: 2,
+  routeEntrance: "大歩危駅",
   image: "/images/iya.jpg",
   access: "阿波池田駅 → 路線バス（四国交通から市営バスへの乗り継ぎあり） → 祖谷渓",
   memo: "バスの乗り継ぎ時刻を調べないとバス停で1時間以上待たされます。",
@@ -343,6 +347,7 @@ costs: [
   train: "東京から約6時間",
   difficulty: "★☆☆☆☆",
   difficultyLevel: 1,
+  routeEntrance: "越後田中駅",
 
   image: "/images/akiyama.JPG",
 
@@ -452,6 +457,8 @@ costs: [
   train: "高知から約1時間30分",
   difficulty: "★★★☆☆",
   difficultyLevel: 3,
+  routeEntrance: "中村駅",
+
 
   image: "/images/kitsune.JPG",
 

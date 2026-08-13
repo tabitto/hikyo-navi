@@ -23,6 +23,11 @@ demandTransport: {
   dropoffPlace: "半場",
   frequency: "水曜日2本、木曜日1本",
   fare: "300円",
+　 reservationRequired: true,
+  reservationDeadline: "前日から利用当日の1時間15分前まで",
+  reservationMethod: "電話",
+  reservationContact: "",
+  note: "当日予約可能",
 },
     image: "/images/shimoguri-new.jpg",
     mapUrl: "https://www.google.com/maps?q=下栗の里&output=embed",
@@ -139,6 +144,11 @@ demandTransport: {
   dropoffPlace: "旧岩屋戸",
   frequency: "1日2本",
   fare: "200円",
+　 reservationRequired: true,
+  reservationDeadline: "利用3日前まで",
+  reservationMethod: "電話",
+  reservationContact: "",
+  note: "当日予約不可",
 },
 
 costs: [
@@ -269,6 +279,11 @@ demandTransport: {
   dropoffPlace: "青鬼集落駐車場",
   frequency: "利用者に応じて適宜運行",
   fare: "300円",
+　 reservationRequired: true,
+  reservationDeadline: "利用4日前から予約可能",
+  reservationMethod: "アプリ予約",
+  reservationContact: "○○交通",
+  note: "当日予約可能",
 },
 
 warnings: [
@@ -321,6 +336,11 @@ demandTransport: {
   dropoffPlace: "",
   frequency: "",
   fare: "",
+　 reservationRequired: false,
+  reservationDeadline: "",
+  reservationMethod: "",
+  reservationContact: "",
+  note: "",
 },
 
 costs: [
@@ -411,11 +431,16 @@ checklist: [
 ],
 demandTransport: {
   available: true,
-   routeName: "",
+  routeName: "秋山郷線",
   boardingPlace: "見玉",
   dropoffPlace: "切明",
   frequency: "1日3本",
   fare: "300円",
+  reservationRequired: true,
+  reservationDeadline: "前日17時まで",
+  reservationMethod: "電話",
+  reservationContact: "森宮交通",
+  note: "当日予約不可",
 },
 costs: [
   { item: "東京駅から津南駅までの乗車券代", price: "4,580円" },
@@ -527,11 +552,16 @@ checklist: [
 ],
 demandTransport: {
   available: true,
-   routeName: "西富山エリア",
+  routeName: "西富山エリア",
   boardingPlace: "中村駅",
   dropoffPlace: "寝つきいいキツネ",
   frequency: "1日3本",
   fare: "300円",
+  reservationRequired: true,
+  reservationDeadline: "2日前から利用の2時間前まで",
+  reservationMethod: "電話",
+  reservationContact: "",
+  note: "当日予約可能",
 },
 costs: [
   { item: "高知駅から中村駅乗車券代", price: "2,750円" },

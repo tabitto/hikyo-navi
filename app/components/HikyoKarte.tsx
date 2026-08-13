@@ -8,13 +8,18 @@ type Props = {
     vendingMachine?: string;
     restaurant?: string;
     stayTime?: string;
-    demandTransport: {
+    demandTransport?: {
   available: boolean;
   routeName?: string;
   boardingPlace: string;
   dropoffPlace: string;
   frequency: string;
   fare: string;
+  reservationRequired: boolean;
+reservationDeadline: string;
+reservationMethod: string;
+reservationContact: string;
+note: string;
 };
   };
 };
@@ -67,6 +72,30 @@ export default function HikyoKarte({ spot }: Props) {
           <p>降車場所：{spot.demandTransport.dropoffPlace}</p>
           <p>1日の本数：{spot.demandTransport.frequency}</p>
           <p>料金：{spot.demandTransport.fare}</p>
+          <p>
+  予約：
+  {spot.demandTransport.reservationRequired ? "必要" : "不要"}
+</p>
+
+{spot.demandTransport.reservationRequired && (
+  <>
+    {spot.demandTransport.reservationDeadline && (
+      <p>予約期限：{spot.demandTransport.reservationDeadline}</p>
+    )}
+
+    {spot.demandTransport.reservationMethod && (
+      <p>予約方法：{spot.demandTransport.reservationMethod}</p>
+    )}
+
+    {spot.demandTransport.reservationContact && (
+      <p>予約先：{spot.demandTransport.reservationContact}</p>
+    )}
+  </>
+)}
+
+{spot.demandTransport.note && (
+  <p>注意：{spot.demandTransport.note}</p>
+)}
         </div>
       )}
     </div>

@@ -122,7 +122,7 @@ export default async function DetailPage({ params }: Props) {
 
   <ol className="mt-6">
   {spot.modelCourse?.map((item, index) => (
-    <li key={index} className="flex gap-4">
+    <li key={index} className="flex gap-3">
       <div className="flex flex-col items-center">
         <div className="h-4 w-4 rounded-full bg-green-600" />
 
@@ -131,9 +131,9 @@ export default async function DetailPage({ params }: Props) {
         )}
       </div>
 
-      <p className="pb-6 leading-7">
-        {item}
-      </p>
+      <p className="min-w-0 flex-1 pb-6 text-sm leading-7 break-words sm:text-base">
+  {item}
+</p>
     </li>
   ))}
 </ol>
@@ -163,13 +163,13 @@ export default async function DetailPage({ params }: Props) {
     {spot.costs?.map((cost, index) => (
       <div
         key={index}
-        className="flex items-center justify-between gap-4 py-3"
+        className="flex flex-col gap-1 py-3 sm:flex-row sm:items-start sm:justify-between"
       >
         <span>{cost.item}</span>
 
-        <span className="font-bold">
-          {cost.price}
-        </span>
+        <span className="font-bold sm:text-right">
+  {cost.price}
+</span>
       </div>
     ))}
   </div>

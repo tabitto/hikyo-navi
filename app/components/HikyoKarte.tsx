@@ -45,13 +45,15 @@ export default function HikyoKarte({ spot }: Props) {
   {items.map((item) => (
     <div
       key={item.label}
-      className="flex justify-between py-3"
+      className="flex flex-col gap-1 py-3 sm:flex-row sm:justify-between"
     >
       <span className="font-bold">
         {item.icon} {item.label}
       </span>
 
-      <span>{item.value ?? "情報なし"}</span>
+      <span className="sm:text-right">
+  {item.value ?? "情報なし"}
+</span>
     </div>
   ))}
 </div>

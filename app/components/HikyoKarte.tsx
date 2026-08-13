@@ -62,42 +62,71 @@ export default function HikyoKarte({ spot }: Props) {
   {spot.demandTransport?.available ? "あり" : "なし"}
 </p>
 
-      {spot.demandTransport?.available && (
-        <div className="mt-3 space-y-1 text-sm text-gray-700">
-          {spot.demandTransport.routeName && (
-            <p>路線名：{spot.demandTransport.routeName}</p>
-          )}
+     {spot.demandTransport?.available && (
+  <div className="mt-3 grid grid-cols-1 gap-2 text-sm text-gray-700 sm:grid-cols-2">
 
-          <p>乗車場所：{spot.demandTransport.boardingPlace}</p>
-          <p>降車場所：{spot.demandTransport.dropoffPlace}</p>
-          <p>1日の本数：{spot.demandTransport.frequency}</p>
-          <p>料金：{spot.demandTransport.fare}</p>
-          <p>
-  予約：
-  {spot.demandTransport.reservationRequired ? "必要" : "不要"}
-</p>
+    {spot.demandTransport.routeName && (
+      <p>
+        <span className="font-bold">路線名：</span>
+        {spot.demandTransport.routeName}
+      </p>
+    )}
 
-{spot.demandTransport.reservationRequired && (
-  <>
+    <p>
+      <span className="font-bold">乗車場所：</span>
+      {spot.demandTransport.boardingPlace}
+    </p>
+
+    <p>
+      <span className="font-bold">降車場所：</span>
+      {spot.demandTransport.dropoffPlace}
+    </p>
+
+    <p>
+      <span className="font-bold">1日の本数：</span>
+      {spot.demandTransport.frequency}
+    </p>
+
+    <p>
+      <span className="font-bold">料金：</span>
+      {spot.demandTransport.fare}
+    </p>
+
+    <p>
+      <span className="font-bold">予約：</span>
+      {spot.demandTransport.reservationRequired ? "必要" : "不要"}
+    </p>
+
     {spot.demandTransport.reservationDeadline && (
-      <p>予約期限：{spot.demandTransport.reservationDeadline}</p>
+      <p>
+        <span className="font-bold">予約期限：</span>
+        {spot.demandTransport.reservationDeadline}
+      </p>
     )}
 
     {spot.demandTransport.reservationMethod && (
-      <p>予約方法：{spot.demandTransport.reservationMethod}</p>
+      <p>
+        <span className="font-bold">予約方法：</span>
+        {spot.demandTransport.reservationMethod}
+      </p>
     )}
 
     {spot.demandTransport.reservationContact && (
-      <p>予約先：{spot.demandTransport.reservationContact}</p>
+      <p>
+        <span className="font-bold">予約先：</span>
+        {spot.demandTransport.reservationContact}
+      </p>
     )}
-  </>
-)}
 
-{spot.demandTransport.note && (
-  <p>注意：{spot.demandTransport.note}</p>
+    {spot.demandTransport.note && (
+      <p className="sm:col-span-2">
+        <span className="font-bold">注意：</span>
+        {spot.demandTransport.note}
+      </p>
+    )}
+
+  </div>
 )}
-        </div>
-      )}
     </div>
   </div>
 );

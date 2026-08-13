@@ -73,16 +73,6 @@ costs: [
 ],
     route: [
       {
-        icon: "🚅",
-        place: "新宿駅",
-        detail: "新宿駅から中央線特急で上諏訪駅へ",
-      },
-      {
-        icon: "🚃",
-        place: "上諏訪駅",
-        detail: "上諏訪駅から飯田線で飯田駅へ",
-      },
-      {
         icon: "🚌",
         place: "飯田駅",
         detail: "飯田駅からバス（信南交通）で学校前バス停へ",
@@ -159,20 +149,15 @@ costs: [
   { item: "合計", price: "15,270円" },
 ],
     route: [
-      {
-        icon: "🚆",
-        place: "羽田空港",
-        detail: "日豊本線で日向市駅へ",
-      },
-      {
-        icon: "🚅",
-        place: "宮崎空港駅",
-        detail: "日向市駅へ移動",
-      },
        {
         icon: "🚌",
         place: "日向市駅",
         detail: "椎葉村へ向けて路線バスに乗車",
+      },
+      {
+        icon: "🚕",
+        place: "おし谷",
+        detail: "デマンドタクシーに乗り換え",
       },
       {
         icon: "🏡",
@@ -242,11 +227,7 @@ costs: [
   { item: "合計", price: "16,620円" },
 ],
   route: [
-    {
-      icon: "🚆",
-      place: "松本駅",
-      detail: "大糸線で信濃森上駅へ",
-    },
+  
     {
       icon: "🚐",
       place: "信濃森上駅",
@@ -351,14 +332,14 @@ costs: [
   ],
   route: [
     {
-      icon: "🚆",
-      place: "岡山駅",
-      detail: "特急南風で高知方面に移動",
-    },
-    {
       icon: "🚌",
       place: "大歩危駅",
       detail: "祖谷方面の路線バスに乗車",
+    },
+    {
+      icon: "🚌",
+      place: "久保バス停",
+      detail: "奥祖谷二重かずら橋へ向かう市営バスに乗り換え",
     },
     {
       icon: "🏞️",
@@ -398,7 +379,7 @@ costs: [
   train: "東京から約6時間",
   difficulty: "★☆☆☆☆",
   difficultyLevel: 1,
-  routeEntrance: "越後田中駅",
+  routeEntrance: "津南駅",
 
   image: "/images/akiyama.JPG",
 
@@ -451,22 +432,7 @@ costs: [
 ],
   route: [
     {
-      icon: "🚄",
-      place: "上野駅",
-      detail: "上越新幹線で越後湯沢駅へ",
-    },
-    {
-      icon: "🚄",
-      place: "越後湯沢駅",
-      detail: "北越急行で十日町駅へ",
-    },
-    {
-      icon: "🚄",
-      place: "十日町駅",
-      detail: "十日町駅から飯山線で津南駅へ",
-    },
-    {
-      icon: "🚄",
+      icon: "👬",
       place: "津南駅",
       detail: "津南駅から徒歩で津南役場前バス停へ",
     },
@@ -571,21 +537,6 @@ costs: [
   { item: "合計", price: "22,410円" },
   ],
   route: [
-    {
-      icon: "🚄",
-      place: "羽田空港",
-      detail: "飛行機で高知空港へ",
-    },
-    {
-      icon: "🚄",
-      place: "高知空港",
-      detail: "連絡バスで高知駅へ",
-    },
-    {
-      icon: "🚆",
-      place: "高知駅",
-      detail: "普通列車で中村駅へ（途中窪川駅で乗り換え）",
-    },
     {
       icon: "🚕",
       place: "中村駅",

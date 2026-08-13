@@ -16,6 +16,14 @@ export const spots = [
   "歩きやすい靴",
   "レインコートなどの雨具",
 ],
+demandTransport: {
+  available: true,
+   routeName: "下栗線",
+  boardingPlace: "学校前",
+  dropoffPlace: "半場",
+  frequency: "水曜日2本、木曜日1本",
+  fare: "300円",
+},
     image: "/images/shimoguri-new.jpg",
     mapUrl: "https://www.google.com/maps?q=下栗の里&output=embed",
     busFrequency: "1日4本",
@@ -124,6 +132,14 @@ checklist: [
   "モバイルバッテリー",
   "歩きやすい靴",
 ],
+demandTransport: {
+  available: true,
+   routeName: "",
+  boardingPlace: "おし谷",
+  dropoffPlace: "旧岩屋戸",
+  frequency: "1日2本",
+  fare: "200円",
+},
 
 costs: [
   { item: "宮崎空港から日向市の乗車券代", price: "1,640円" },
@@ -246,6 +262,14 @@ recommendedItems: [
   "モバイルバッテリー",
   "歩きやすい靴",
 ],
+demandTransport: {
+  available: true,
+   routeName: "",
+  boardingPlace: "信濃森上駅",
+  dropoffPlace: "青鬼集落駐車場",
+  frequency: "利用者に応じて適宜運行",
+  fare: "300円",
+},
 
 warnings: [
   "デマンド交通は事前予約必須",
@@ -291,6 +315,13 @@ checklist: [
   "現金（新500円玉や新1000円札を除く）",
   "レインコート",
 ],
+demandTransport: {
+  available: false,
+  boardingPlace: "",
+  dropoffPlace: "",
+  frequency: "",
+  fare: "",
+},
 
 costs: [
   { item: "岡山駅から大歩危駅乗車券代", price: "2,410円" },
@@ -378,7 +409,14 @@ checklist: [
   "現金（特に小銭）",
   "ポケットWi-Fi",
 ],
-
+demandTransport: {
+  available: true,
+   routeName: "",
+  boardingPlace: "見玉",
+  dropoffPlace: "切明",
+  frequency: "1日3本",
+  fare: "300円",
+},
 costs: [
   { item: "東京駅から津南駅までの乗車券代", price: "4,580円" },
   { item: "新幹線指定席代", price: "3,580円" },
@@ -487,7 +525,14 @@ checklist: [
   "パジャマ",
   "現金（特に小銭）",
 ],
-
+demandTransport: {
+  available: true,
+   routeName: "西富山エリア",
+  boardingPlace: "中村駅",
+  dropoffPlace: "寝つきいいキツネ",
+  frequency: "1日3本",
+  fare: "300円",
+},
 costs: [
   { item: "高知駅から中村駅乗車券代", price: "2,750円" },
   { item: "特急あしずり指定席代", price: "2,360円" },

@@ -57,7 +57,50 @@ export default async function DetailPage({ params }: Props) {
 
           <FavoriteButton spotId={spot.id} />
 
-          <HikyoKarte spot={spot} />
+<div className="mt-6 rounded-xl border bg-white p-4">
+  <p className="mb-3 font-bold">このページの情報</p>
+
+  <div className="grid grid-cols-2 gap-2 text-sm">
+    <a
+      href="#karte"
+      className="rounded-lg bg-green-50 px-3 py-2 text-center font-bold text-green-800"
+    >
+      📝 秘境カルテ
+    </a>
+
+    <a
+      href="#access"
+      className="rounded-lg bg-green-50 px-3 py-2 text-center font-bold text-green-800"
+    >
+      🚃 アクセス
+    </a>
+
+    <a
+      href="#course"
+      className="rounded-lg bg-green-50 px-3 py-2 text-center font-bold text-green-800"
+    >
+      🕐 モデルコース
+    </a>
+
+    <a
+      href="#cost"
+      className="rounded-lg bg-green-50 px-3 py-2 text-center font-bold text-green-800"
+    >
+      💰 費用
+    </a>
+
+    <a
+      href="#warning"
+      className="rounded-lg bg-yellow-50 px-3 py-2 text-center font-bold text-yellow-800"
+    >
+      ⚠️ 注意点
+    </a>
+  </div>
+</div>
+
+<div id="karte" className="scroll-mt-4">
+  <HikyoKarte spot={spot} />
+</div>
 
           <RecommendedItems items={spot.recommendedItems} />
 
@@ -75,9 +118,12 @@ export default async function DetailPage({ params }: Props) {
 
           <hr className="my-8" />
 
-          <h2 className="text-2xl font-bold">
-            アクセス
-          </h2>
+          <h2
+  id="access"
+  className="scroll-mt-4 text-2xl font-bold"
+>
+  アクセス
+</h2>
 
           <p className="mt-3 leading-8">
             {spot.access}
@@ -116,9 +162,12 @@ export default async function DetailPage({ params }: Props) {
 
 </div>
           <div className="mt-8 rounded-xl border bg-white p-6 shadow-sm">
-  <h2 className="text-2xl font-bold">
-    モデルコース
-  </h2>
+  <h2
+  id="course"
+  className="scroll-mt-4 text-2xl font-bold"
+>
+  モデルコース
+</h2>
 
   <ol className="mt-6">
   {spot.modelCourse?.map((item, index) => (
@@ -131,9 +180,27 @@ export default async function DetailPage({ params }: Props) {
         )}
       </div>
 
-      <p className="min-w-0 flex-1 pb-6 text-sm leading-7 break-words sm:text-base">
-  {item}
-</p>
+      {typeof item === "string" ? (
+        <p className="min-w-0 flex-1 pb-6 text-sm leading-7 sm:text-base">
+          {item}
+        </p>
+      ) : (
+        <div className="min-w-0 flex-1 pb-6">
+          <p className="text-sm font-bold text-green-700">
+            {item.time}
+          </p>
+
+          <p className="mt-1 font-bold">
+            {item.title}
+          </p>
+
+          {item.detail && (
+            <p className="mt-1 text-sm leading-6 text-gray-600">
+              {item.detail}
+            </p>
+          )}
+        </div>
+      )}
     </li>
   ))}
 </ol>
@@ -155,9 +222,12 @@ export default async function DetailPage({ params }: Props) {
   </ul>
 </div>
 <div className="mt-8 rounded-xl border bg-white p-6 shadow-sm">
-  <h2 className="text-2xl font-bold">
-    実際にかかった費用
-  </h2>
+  <h2
+  id="cost"
+  className="scroll-mt-4 text-2xl font-bold"
+>
+  実際にかかった費用
+</h2>
 
   <div className="mt-4 divide-y">
     {spot.costs?.map((cost, index) => (
@@ -184,7 +254,10 @@ export default async function DetailPage({ params }: Props) {
           </p>
 
           <div className="mt-8 rounded-xl border border-yellow-300 bg-yellow-50 p-6">
-  <h2 className="text-xl font-bold text-yellow-900">
+  <h2
+  id="warning"
+  className="scroll-mt-4 text-xl font-bold text-yellow-900"
+>
   注意しておきたいポイント
 </h2>
 

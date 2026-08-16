@@ -24,9 +24,12 @@ export default async function DetailPage({ params }: Props) {
           秘境が見つかりませんでした。
         </h1>
 
-        <Link href="/results" className="text-blue-600 underline">
-          検索結果へ戻る
-        </Link>
+        <Link
+  href="/results"
+  className="font-bold text-green-700 hover:underline"
+>
+  ← 検索結果に戻る
+</Link>
       </main>
     );
   }

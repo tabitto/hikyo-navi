@@ -340,10 +340,15 @@ export default async function DetailPage({ params }: Props) {
       </div>
       <a
   href="#top"
-  className="fixed bottom-5 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-green-700 text-sm font-bold text-white shadow-lg sm:bottom-6 sm:right-6"
-  aria-label="ページの上に戻る"
+  className="fixed bottom-5 right-4 z-50 flex flex-col items-center justify-center rounded-xl bg-green-700 px-4 py-2 text-white shadow-lg transition hover:bg-green-800 sm:bottom-6 sm:right-6"
+  aria-label="ページの最初に戻る"
 >
-  ↑
+  <span className="text-xs font-bold">
+    ページの最初に戻る
+  </span>
+  <span className="text-xl leading-none">
+    ↑
+  </span>
 </a>
     </main>
   );

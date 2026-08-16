@@ -26,7 +26,7 @@ export default async function DetailPage({ params }: Props) {
 
         <Link
   href="/results"
-  className="font-bold text-green-700 hover:underline"
+  className="font-extrabold text-green-700 hover:underline"
 >
   ← 検索結果に戻る
 </Link>

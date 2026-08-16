@@ -32,7 +32,10 @@ export default async function DetailPage({ params }: Props) {
   }
 
   return (
-    <main className="min-h-screen bg-green-50">
+    <main
+  id="top"
+  className="min-h-screen bg-white sm:bg-green-50"
+>
       <div className="mx-auto max-w-5xl px-1 py-2 sm:p-8">
         <Link href="/results" className="text-green-700 underline">
           ← 検索結果へ戻る
@@ -335,6 +338,13 @@ export default async function DetailPage({ params }: Props) {
           </div>
         </div>
       </div>
+      <a
+  href="#top"
+  className="fixed bottom-5 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-green-700 text-sm font-bold text-white shadow-lg sm:bottom-6 sm:right-6"
+  aria-label="ページの上に戻る"
+>
+  ↑
+</a>
     </main>
   );
 }

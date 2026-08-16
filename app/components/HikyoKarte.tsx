@@ -37,7 +37,7 @@ export default function HikyoKarte({ spot }: Props) {
 ];
 
     return (
-    <div className="mt-8 rounded-xl border border-green-200 bg-green-50 p-6">
+    <div className="mt-6 rounded-xl border border-green-200 bg-green-50 p-3 sm:mt-8 sm:p-6">
       <h2 className="mb-5 text-2xl font-bold text-green-800">
         秘境カルテ
       </h2>

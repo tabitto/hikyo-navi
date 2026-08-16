@@ -33,12 +33,12 @@ export default async function DetailPage({ params }: Props) {
 
   return (
     <main className="min-h-screen bg-green-50">
-      <div className="mx-auto max-w-5xl p-8">
+      <div className="mx-auto max-w-5xl px-1 py-2 sm:p-8">
         <Link href="/results" className="text-green-700 underline">
           ← 検索結果へ戻る
         </Link>
 
-        <div className="mt-6 rounded-xl bg-white p-8 shadow">
+        <div className="mt-4 rounded-xl bg-white p-4 shadow sm:mt-6 sm:p-8">
           <p className="font-bold text-green-700">
             {spot.prefecture}
           </p>
@@ -128,7 +128,7 @@ export default async function DetailPage({ params }: Props) {
           <p className="mt-3 leading-8">
             {spot.access}
           </p>
-          <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-6">
+          <div className="mt-5 rounded-xl border border-blue-200 bg-blue-50 p-4 sm:mt-6 sm:p-6">
   <h2 className="text-xl font-bold text-blue-900">
     🚉 秘境への入口
   </h2>
@@ -161,7 +161,7 @@ export default async function DetailPage({ params }: Props) {
 </div>
 
 </div>
-          <div className="mt-8 rounded-xl border bg-white p-6 shadow-sm">
+          <div className="mt-6 rounded-xl border bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
   <h2
   id="course"
   className="scroll-mt-4 text-2xl font-bold"
@@ -205,7 +205,7 @@ export default async function DetailPage({ params }: Props) {
   ))}
 </ol>
 </div>
-<div className="mt-8 rounded-xl border bg-white p-6 shadow-sm">
+<div className="mt-6 rounded-xl border bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
   <h2 className="text-2xl font-bold">
     持ち物チェックリスト
   </h2>
@@ -221,7 +221,7 @@ export default async function DetailPage({ params }: Props) {
     ))}
   </ul>
 </div>
-<div className="mt-8 rounded-xl border bg-white p-6 shadow-sm">
+<div className="mt-6 rounded-xl border bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
   <h2
   id="cost"
   className="scroll-mt-4 text-2xl font-bold"
@@ -253,7 +253,7 @@ export default async function DetailPage({ params }: Props) {
             {spot.memo}
           </p>
 
-          <div className="mt-8 rounded-xl border border-yellow-300 bg-yellow-50 p-6">
+          <div className="mt-8 rounded-xl border border-yellow-300 bg-yellow-50 p-4 sm:p-6">
   <h2
   id="warning"
   className="scroll-mt-4 text-xl font-bold text-yellow-900"

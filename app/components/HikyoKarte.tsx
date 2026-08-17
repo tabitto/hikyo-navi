@@ -19,9 +19,18 @@ type Props = {
 reservationDeadline: string;
 reservationMethod: string;
 reservationContact: string;
-note: string;
-};
+    note: string;
   };
+
+  routeEntrance: string;
+
+  dayTrip?: {
+    possible: boolean;
+    returnToEntrance: boolean;
+    lastDeparture: string;
+    note: string;
+  };
+};
 };
 
 export default function HikyoKarte({ spot }: Props) {
@@ -58,78 +67,120 @@ export default function HikyoKarte({ spot }: Props) {
   ))}
 </div>
       
-      <div className="mt-5 rounded-xl bg-green-100 p-4">
-      <p className="font-bold text-green-800">
-  🚐 デマンド交通：
-  {spot.demandTransport?.available ? "あり" : "なし"}
+      {/* デマンド交通カード */}
+<div className="mt-5 rounded-xl bg-green-100 p-4">
+  <p className="font-bold text-green-800">
+    🚐 デマンド交通：
+    {spot.demandTransport?.available ? "あり" : "なし"}
+  </p>
+
+  {spot.demandTransport?.available && (
+    <div className="mt-3 grid grid-cols-1 gap-2 text-sm text-gray-700 sm:grid-cols-2">
+
+      {spot.demandTransport.routeName && (
+        <p>
+          <span className="font-bold">路線名：</span>
+          {spot.demandTransport.routeName}
+        </p>
+      )}
+
+      <p>
+        <span className="font-bold">乗車場所：</span>
+        {spot.demandTransport.boardingPlace}
+      </p>
+
+      <p>
+        <span className="font-bold">降車場所：</span>
+        {spot.demandTransport.dropoffPlace}
+      </p>
+
+      <p>
+        <span className="font-bold">1日の本数：</span>
+        {spot.demandTransport.frequency}
+      </p>
+
+      <p>
+        <span className="font-bold">料金：</span>
+        {spot.demandTransport.fare}
+      </p>
+
+      <p>
+        <span className="font-bold">予約：</span>
+        {spot.demandTransport.reservationRequired ? "必要" : "不要"}
+      </p>
+
+      {spot.demandTransport.reservationDeadline && (
+        <p>
+          <span className="font-bold">予約期限：</span>
+          {spot.demandTransport.reservationDeadline}
+        </p>
+      )}
+
+      {spot.demandTransport.reservationMethod && (
+        <p>
+          <span className="font-bold">予約方法：</span>
+          {spot.demandTransport.reservationMethod}
+        </p>
+      )}
+
+      {spot.demandTransport.reservationContact && (
+        <p>
+          <span className="font-bold">予約先：</span>
+          {spot.demandTransport.reservationContact}
+        </p>
+      )}
+
+      {spot.demandTransport.note && (
+        <p className="sm:col-span-2">
+          <span className="font-bold">注意：</span>
+          {spot.demandTransport.note}
+        </p>
+      )}
+
+    </div>
+  )}
+</div>
+
+{/* 日帰り情報カード */}
+{spot.dayTrip && (
+  <div className="mt-4 rounded-xl bg-blue-50 p-4">
+    <p className="font-bold text-blue-900">
+      🏠 日帰り・帰宅情報
+    </p>
+
+    <div className="mt-3 space-y-1 text-sm text-gray-700">
+      <p>
+        <span className="font-bold">日帰り：</span>
+        {spot.dayTrip.possible ? "可能" : "困難"}
+      </p>
+
+      <p>
+  <span className="font-bold">
+    当日中に戻れる場所：
+  </span>
+  {spot.dayTrip.returnToEntrance
+    ? spot.routeEntrance
+    : "入口まで戻るのは困難"}
 </p>
 
-     {spot.demandTransport?.available && (
-  <div className="mt-3 grid grid-cols-1 gap-2 text-sm text-gray-700 sm:grid-cols-2">
+      {spot.dayTrip.lastDeparture && (
+        <p>
+  <span className="font-bold">現地の最終出発目安：</span>
+  {spot.dayTrip.lastDeparture}
+</p>
+      )}
 
-    {spot.demandTransport.routeName && (
-      <p>
-        <span className="font-bold">路線名：</span>
-        {spot.demandTransport.routeName}
-      </p>
-    )}
-
-    <p>
-      <span className="font-bold">乗車場所：</span>
-      {spot.demandTransport.boardingPlace}
-    </p>
-
-    <p>
-      <span className="font-bold">降車場所：</span>
-      {spot.demandTransport.dropoffPlace}
-    </p>
-
-    <p>
-      <span className="font-bold">1日の本数：</span>
-      {spot.demandTransport.frequency}
-    </p>
-
-    <p>
-      <span className="font-bold">料金：</span>
-      {spot.demandTransport.fare}
-    </p>
-
-    <p>
-      <span className="font-bold">予約：</span>
-      {spot.demandTransport.reservationRequired ? "必要" : "不要"}
-    </p>
-
-    {spot.demandTransport.reservationDeadline && (
-      <p>
-        <span className="font-bold">予約期限：</span>
-        {spot.demandTransport.reservationDeadline}
-      </p>
-    )}
-
-    {spot.demandTransport.reservationMethod && (
-      <p>
-        <span className="font-bold">予約方法：</span>
-        {spot.demandTransport.reservationMethod}
-      </p>
-    )}
-
-    {spot.demandTransport.reservationContact && (
-      <p>
-        <span className="font-bold">予約先：</span>
-        {spot.demandTransport.reservationContact}
-      </p>
-    )}
-
-    {spot.demandTransport.note && (
-      <p className="sm:col-span-2">
-        <span className="font-bold">注意：</span>
-        {spot.demandTransport.note}
-      </p>
-    )}
-
-  </div>
-)}
+      {spot.dayTrip.note && (
+        <p>
+          <span className="font-bold">注意：</span>
+          {spot.dayTrip.note}
+        </p>
+      )}
     </div>
   </div>
+)}
+  </div>
+  
+
 );
 }

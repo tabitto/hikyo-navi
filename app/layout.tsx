@@ -18,7 +18,6 @@ export const metadata: Metadata = {
     "車なし・公共交通で行ける秘境を紹介。徒歩距離やアクセス難易度から、自分に合った秘境を探せます。",
   applicationName: "車なし秘境ナビ",
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{

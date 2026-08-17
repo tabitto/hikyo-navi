@@ -82,12 +82,19 @@ export default async function DetailPage({ params }: Props) {
     </a>
 
     <a
-      href="#course"
-      className="rounded-lg bg-green-50 px-3 py-2 text-center font-bold text-green-800"
-    >
-      🕐 モデルコース
-    </a>
+  href="#course"
+  className="rounded-lg bg-green-50 px-3 py-2 text-center font-bold text-green-800"
+>
+  🚃 実際に使ったルート
+</a>
 
+
+<a
+  href="#hikyo-route"
+  className="rounded-lg bg-green-50 px-3 py-2 text-center font-bold text-green-800"
+>
+  🗺️ モデルコース
+</a>
     <a
       href="#cost"
       className="rounded-lg bg-green-50 px-3 py-2 text-center font-bold text-green-800"
@@ -172,7 +179,7 @@ export default async function DetailPage({ params }: Props) {
   id="course"
   className="scroll-mt-4 text-2xl font-bold"
 >
-  モデルコース
+  実際に使ったルート
 </h2>
 
   <ol className="mt-6">
@@ -304,11 +311,11 @@ export default async function DetailPage({ params }: Props) {
   id="hikyo-route"
   className="mb-3 scroll-mt-6 text-2xl font-bold"
 >
-  🚶 {spot.routeEntrance}から秘境までのルート
+  🗺️ モデルコース
 </h2>
 
 <p className="mb-6 text-gray-700">
-  ここから先は、実際に利用した交通手段をもとに案内します。
+  秘境への行き方や現地での過ごし方の一例です。
 </p>
 
           <div className="space-y-0">

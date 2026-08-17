@@ -10,7 +10,15 @@ export const spots = [
     difficulty: "★★★★☆",
     difficultyLevel: 4,
     routeEntrance: "飯田駅",
-    recommendedItems: [
+
+dayTrip: {
+  possible: false,
+  returnToEntrance: false,
+  lastDeparture: "",
+  note: "公共交通のみでは日帰り困難。宿泊推奨",
+},
+
+recommendedItems: [
   "飲み物",
   "食べ物",
   "歩きやすい靴",
@@ -197,6 +205,13 @@ demandTransport: {
   note: "当日予約不可",
 },
 
+dayTrip: {
+  possible: true,
+  returnToEntrance: true,
+  lastDeparture: "おし谷13：25発",
+  note: "最終便を逃すと当日中に日向市駅まで帰れません",
+},
+
 costs: [
   { item: "宮崎空港から日向市の乗車券代", price: "1,640円" },
   { item: "特急ひゅうが指定券代", price: "1,530円" },
@@ -350,8 +365,14 @@ demandTransport: {
 　 reservationRequired: true,
   reservationDeadline: "利用4日前から予約可能",
   reservationMethod: "アプリ予約",
-  reservationContact: "○○交通",
+  reservationContact: "",
   note: "当日予約可能",
+},
+dayTrip: {
+  possible: true,
+  returnToEntrance: true,
+  lastDeparture: "16:55発",
+  note: "最終便を逃すと当日中に白馬駅まで帰れません",
 },
 
 warnings: [
@@ -371,6 +392,13 @@ warnings: [
   difficulty: "★★☆☆☆",
   difficultyLevel: 2,
   routeEntrance: "大歩危駅",
+  dayTrip: {
+  possible: true,
+  returnToEntrance: true,
+  lastDeparture: "三重かずら橋15:13発",
+  note: "最終便を逃すと当日中に大歩危まで帰れません",
+},
+
   image: "/images/iya.jpg",
   access: "阿波池田駅 → 路線バス（四国交通から市営バスへの乗り継ぎあり） → 祖谷渓",
   memo: "バスの乗り継ぎ時刻を調べないとバス停で1時間以上待たされます。",
@@ -572,6 +600,12 @@ demandTransport: {
   reservationContact: "森宮交通",
   note: "当日予約不可",
 },
+dayTrip: {
+  possible: true,
+  returnToEntrance: true,
+  lastDeparture: "切明16:30発",
+  note: "最終便を逃すと当日中に津南まで帰れません",
+},
 costs: [
   { item: "東京駅から津南駅までの乗車券代", price: "4,580円" },
   { item: "新幹線指定席代", price: "3,580円" },
@@ -694,6 +728,7 @@ demandTransport: {
   reservationContact: "",
   note: "当日予約可能",
 },
+
 costs: [
   { item: "高知駅から中村駅乗車券代", price: "2,750円" },
   { item: "特急あしずり指定席代", price: "2,360円" },

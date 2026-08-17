@@ -317,7 +317,7 @@ export default async function DetailPage({ params }: Props) {
   id="hikyo-route"
   className="mb-3 scroll-mt-6 text-2xl font-bold"
 >
-  🗺️ モデルコース
+  🗺️ 秘境の入り口から秘境までのモデルコース
 </h2>
 
 <p className="mb-6 text-gray-700">

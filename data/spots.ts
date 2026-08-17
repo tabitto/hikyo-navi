@@ -292,6 +292,7 @@ modelCourse: [
     time: "15:07",
     title: "信濃大町駅 到着",
     detail: "信濃大町駅前のルートインで前泊",
+    type: "stay",
   },
   {
     time: "7:06",
@@ -418,7 +419,8 @@ modelCourse: [
   {
     time: "14:41",
     title: "大歩危駅 到着",
-    detail: "路線バスでホテル秘境の湯へ向かう（前泊）",
+    detail: "路線バスでホテル秘境の湯へ向かう",
+    type: "stay",
   },
   {
     time: "9:12",

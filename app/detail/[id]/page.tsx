@@ -198,7 +198,13 @@ export default async function DetailPage({ params }: Props) {
           {item}
         </p>
       ) : (
-        <div className="min-w-0 flex-1 pb-6">
+        <div
+  className={
+    "type" in item && item.type === "stay"
+      ? "min-w-0 flex-1 rounded-xl border border-amber-200 bg-amber-50 p-3 pb-4"
+      : "min-w-0 flex-1 pb-6"
+  }
+>
           <p className="text-sm font-bold text-green-700">
             {item.time}
           </p>

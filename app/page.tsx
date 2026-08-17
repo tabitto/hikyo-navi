@@ -50,33 +50,6 @@ export default function Home() {
         </div>
 
         <h2 className="mt-12 text-center text-3xl font-bold text-green-800">
-          🚶 徒歩距離から探す
-        </h2>
-
-        <div className="mt-6 flex flex-wrap justify-center gap-4">
-          <Link
-            href="/results?walkingMax=1"
-            className="rounded-full bg-green-100 px-5 py-2 hover:bg-green-200"
-          >
-            ～1km
-          </Link>
-
-          <Link
-            href="/results?walkingMax=3"
-            className="rounded-full bg-yellow-100 px-5 py-2 hover:bg-yellow-200"
-          >
-            1〜3km
-          </Link>
-
-          <Link
-            href="/results?walkingMax=99"
-            className="rounded-full bg-red-100 px-5 py-2 hover:bg-red-200"
-          >
-            3km以上
-          </Link>
-        </div>
-
-        <h2 className="mt-12 text-center text-3xl font-bold text-green-800">
           ⭐ おすすめの秘境
         </h2>
 

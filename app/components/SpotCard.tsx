@@ -9,6 +9,7 @@ type SpotCardProps = {
     prefecture: string;
     walking: string;
     difficulty: string;
+    difficultyLevel: number;
     image: string;
     recommended?: boolean;
   };
@@ -32,8 +33,23 @@ export default function SpotCard({ spot }: SpotCardProps) {
 
       <h2 className="mt-3 text-xl font-bold">{spot.name}</h2>
       <p className="mt-2 text-gray-600">📍 {spot.prefecture}</p>
-<p className="text-gray-600">🚶 徒歩 {spot.walking}</p>
-<p className="text-gray-600">⭐ {spot.difficulty}</p>
+<div className="mt-2">
+  <p className="text-sm font-bold text-gray-700">
+    車なしアクセス難易度
+  </p>
+
+  <p className="mt-1 text-lg">
+    {spot.difficulty}
+  </p>
+
+  <p className="text-sm font-bold text-green-800">
+    {spot.difficultyLevel === 1 && "とても行きやすい"}
+    {spot.difficultyLevel === 2 && "行きやすい"}
+    {spot.difficultyLevel === 3 && "ふつう"}
+    {spot.difficultyLevel === 4 && "やや難しい"}
+    {spot.difficultyLevel === 5 && "難しい"}
+  </p>
+</div>
 <div className="mt-auto pt-4">
   <Link
     href={`/detail/${spot.id}`}

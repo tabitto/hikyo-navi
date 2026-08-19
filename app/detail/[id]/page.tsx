@@ -61,6 +61,26 @@ export default async function DetailPage({ params }: Props) {
             {spot.name}
           </h1>
 
+          <div className="mt-4 rounded-xl bg-green-50 p-4">
+  <p className="text-sm font-bold text-green-800">
+    車なしアクセス難易度
+  </p>
+
+  <div className="mt-1 flex items-center gap-3">
+    <span className="text-xl">
+      {spot.difficulty}
+    </span>
+
+    <span className="font-bold text-green-900">
+      {spot.difficultyLevel === 1 && "とても行きやすい"}
+      {spot.difficultyLevel === 2 && "行きやすい"}
+      {spot.difficultyLevel === 3 && "ふつう"}
+      {spot.difficultyLevel === 4 && "やや難しい"}
+      {spot.difficultyLevel === 5 && "難しい"}
+    </span>
+  </div>
+</div>
+
           <FavoriteButton spotId={spot.id} />
 
 <div className="mt-6 rounded-xl border bg-white p-4">
@@ -78,7 +98,7 @@ export default async function DetailPage({ params }: Props) {
       href="#access"
       className="rounded-lg bg-green-50 px-3 py-2 text-center font-bold text-green-800"
     >
-      🚃 アクセス
+      🚉 秘境への入口
     </a>
 
     <a
@@ -131,17 +151,10 @@ export default async function DetailPage({ params }: Props) {
 
           <hr className="my-8" />
 
-          <h2
+        
+          <div
   id="access"
-  className="scroll-mt-4 text-2xl font-bold"
->
-  アクセス
-</h2>
-
-          <p className="mt-3 leading-8">
-            {spot.access}
-          </p>
-          <div className="mt-5 rounded-xl border border-blue-200 bg-blue-50 p-4 sm:mt-6 sm:p-6">
+  className="scroll-mt-4 mt-5 rounded-xl border border-blue-200 bg-blue-50 p-4 sm:mt-6 sm:p-6">
   <h2 className="text-xl font-bold text-blue-900">
     🚉 秘境への入口
   </h2>
@@ -263,14 +276,6 @@ export default async function DetailPage({ params }: Props) {
     ))}
   </div>
 </div>
-
-          <h2 className="mt-8 text-2xl font-bold">
-            実際に行って分かったこと
-          </h2>
-
-          <p className="mt-3 leading-8">
-            {spot.memo}
-          </p>
 
           <div className="mt-8 rounded-xl border border-yellow-300 bg-yellow-50 p-4 sm:p-6">
   <h2

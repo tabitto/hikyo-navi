@@ -49,18 +49,48 @@ export default async function DetailPage({ params }: Props) {
             {spot.prefecture}
           </p>
 
-          <Image
-            src={spot.image}
-            alt={spot.name}
-            width={800}
-            height={500}
-            className="mb-6 w-full rounded-xl object-cover"
-          />
+          {spot.visited ? (
+  <Image
+    src={spot.image}
+    alt={spot.name}
+    width={800}
+    height={500}
+    className="mb-6 w-full rounded-xl object-cover"
+  />
+) : (
+  <div className="mb-6 flex min-h-56 w-full flex-col items-center justify-center rounded-xl bg-green-50 px-6 py-8 text-center">
+    <p className="text-sm font-bold text-green-700">
+      {spot.prefecture}
+    </p>
+
+    <p className="mt-3 text-sm leading-6 text-gray-600">
+      公共交通と徒歩で行ける場所として交通情報を調査しています。
+    </p>
+  </div>
+)}
 
           <h1 className="mt-2 text-4xl font-bold">
             {spot.name}
           </h1>
 
+         <div
+  className={
+    spot.visited
+      ? "mt-3 inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-sm font-bold text-green-800"
+      : "mt-3 inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-sm font-bold text-gray-700"
+  }
+>
+  {spot.visited
+    ? "実際に訪問済み"
+    : "未訪問・交通情報のみ調査済み"}
+</div>
+{!spot.visited && (
+  <div className="mt-3 rounded-xl border border-gray-200 bg-gray-50 p-4 text-sm leading-6 text-gray-700">
+    この場所はまだ実際には訪問していません。
+    公共交通・自治体などの公開情報をもとに掲載しています。
+    旅行前に最新の公式情報をご確認ください。
+  </div>
+)}
           <div className="mt-4 rounded-xl bg-green-50 p-4">
   <p className="text-sm font-bold text-green-800">
     車なしアクセス難易度
@@ -101,12 +131,14 @@ export default async function DetailPage({ params }: Props) {
       🚉 秘境への入口
     </a>
 
-    <a
-  href="#course"
-  className="rounded-lg bg-green-50 px-3 py-2 text-center font-bold text-green-800"
->
-  🚃 実際に使ったルート
-</a>
+    {spot.visited && (
+  <a
+    href="#course"
+    className="rounded-lg bg-green-50 px-3 py-2 text-center font-bold text-green-800"
+  >
+    🚃 実際に使ったルート
+  </a>
+)}
 
 
 <a
@@ -115,12 +147,14 @@ export default async function DetailPage({ params }: Props) {
 >
   🗺️ モデルコース
 </a>
-    <a
-      href="#cost"
-      className="rounded-lg bg-green-50 px-3 py-2 text-center font-bold text-green-800"
-    >
-      💰 費用
-    </a>
+    {spot.visited && (
+  <a
+    href="#cost"
+    className="rounded-lg bg-green-50 px-3 py-2 text-center font-bold text-green-800"
+  >
+    💰 費用
+  </a>
+)}
 
     <a
       href="#warning"
@@ -187,6 +221,8 @@ export default async function DetailPage({ params }: Props) {
 </div>
 
 </div>
+          
+          {spot.visited && (
           <div className="mt-6 rounded-xl border bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
   <h2
   id="course"
@@ -237,6 +273,7 @@ export default async function DetailPage({ params }: Props) {
   ))}
 </ol>
 </div>
+)}
 <div className="mt-6 rounded-xl border bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
   <h2 className="text-2xl font-bold">
     持ち物チェックリスト
@@ -253,6 +290,7 @@ export default async function DetailPage({ params }: Props) {
     ))}
   </ul>
 </div>
+{spot.visited && (
 <div className="mt-6 rounded-xl border bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
   <h2
   id="cost"
@@ -276,6 +314,7 @@ export default async function DetailPage({ params }: Props) {
     ))}
   </div>
 </div>
+)}
 
           <div className="mt-8 rounded-xl border border-yellow-300 bg-yellow-50 p-4 sm:p-6">
   <h2

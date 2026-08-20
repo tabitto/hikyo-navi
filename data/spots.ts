@@ -10,6 +10,7 @@ export const spots = [
     difficulty: "★★★★☆",
     difficultyLevel: 4,
     routeEntrance: "飯田駅",
+    visited: true,
 
 dayTrip: {
   possible: false,
@@ -141,6 +142,7 @@ costs: [
     difficulty: "★★★★★",
 　　difficultyLevel: 5,
    routeEntrance: "日向市駅",
+   visited: true,
     image: "/images/shiiba.JPG",
     access: "日向市駅 → 路線バス → 椎葉村",
     memo: "バスの本数が1日2本と少ないため、事前に時刻表を確認しておくと安心です。",
@@ -262,6 +264,7 @@ stayTime: "1泊",
   difficulty: "★★★☆☆",
   difficultyLevel: 3,
   routeEntrance: "信濃森上駅",
+  visited: true,
   image: "/images/aoni.JPG",
   access: "信濃森上駅 → デマンド交通 → 青鬼集落",
   memo: "デマンド交通は事前予約が必要です。アプリから予約することができます。",
@@ -393,6 +396,7 @@ warnings: [
   difficulty: "★★☆☆☆",
   difficultyLevel: 2,
   routeEntrance: "大歩危駅",
+  visited: true,
   dayTrip: {
   possible: true,
   returnToEntrance: true,
@@ -524,6 +528,7 @@ costs: [
   difficulty: "★☆☆☆☆",
   difficultyLevel: 1,
   routeEntrance: "津南駅",
+  visited: true,
 
   image: "/images/akiyama.JPG",
 
@@ -672,6 +677,7 @@ costs: [
   difficulty: "★★★☆☆",
   difficultyLevel: 3,
   routeEntrance: "中村駅",
+  visited: true,
 
 
   image: "/images/kitsune.JPG",
@@ -771,6 +777,108 @@ costs: [
     "周辺に店と人家がない",
     "夕暮れ前の到着がおすすめ",
     "街灯がない",
+  ],
+},
+{
+  id: 7,
+  name: "雲上の民宿 家曽敷",
+  prefecture: "徳島県",
+  visited: false,
+
+  walking: "3.6km",
+  walkingDistance: 3.6,
+
+  train: "徳島駅からJR徳島線で貞光駅へ",
+
+  difficulty: "★★★★☆",
+  difficultyLevel: 4,
+
+  routeEntrance: "八面橋バス停（徳島県美馬郡つるぎ町一宇久藪）",
+
+
+  image: "/images/yasoshiki.jpg",
+
+  access:
+    "徳島駅 → JR徳島線 → 貞光駅 → つるぎ町コミュニティバス → 八面橋バス停 → 徒歩約3.6km → 雲上の民宿 家曽敷",
+
+  memo:
+    "つるぎ町の山間部の集落にある宿泊施設。八面橋バス停から約3.6km歩いて向かいます。",
+
+  pitfalls: [
+    "八面橋バス停から宿まで約3.6km歩く",
+    "宿までの道は細い一本の山道",
+    "周辺にコンビニはない",
+  ],
+
+  noteUrl: "",
+
+  modelCourse: [],
+
+  checklist: [
+    "履きなれた靴",
+    "飲み物",
+    "現金",
+    "雨具",
+  ],
+
+  demandTransport: {
+    available: false,
+    routeName: "",
+    boardingPlace: "",
+    dropoffPlace: "",
+    frequency: "",
+    fare: "",
+    reservationRequired: false,
+    reservationDeadline: "",
+    reservationMethod: "",
+    reservationContact: "",
+    note: "",
+  },
+
+  costs: [],
+
+  route: [
+    {
+      icon: "🚶",
+      place: "八面橋バス停",
+      detail:
+        "ここから徒歩約3.6km。細い一本の山道を約1時間歩いて宿へ向かいます",
+    },
+    {
+      icon: "🏠",
+      place: "雲上の民宿 家曽敷",
+      detail: "宿に到着",
+    },
+  ],
+
+  mapUrl:
+    "https://www.google.com/maps?q=雲上の民宿家曽敷&output=embed",
+
+  busFrequency: "1日5本",
+
+  convenienceStore: "なし",
+
+  toilet: "あり（集落内に1か所）",
+
+  signal: "不明",
+
+  vendingMachine: "なし",
+
+  restaurant: "なし",
+
+  stayTime: "1泊",
+
+  recommendedItems: [
+    "履きなれた靴",
+    "飲み物",
+    "雨具",
+  ],
+
+  warnings: [
+    "八面橋バス停から宿まで約3.6km歩く",
+    "宿まで細い一本の山道を歩く",
+    "周辺にコンビニはない",
+    "コミュニティバスの運行日・時刻を出発前に確認する",
   ],
 },
 ];

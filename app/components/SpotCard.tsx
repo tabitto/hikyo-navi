@@ -12,6 +12,15 @@ type SpotCardProps = {
     difficultyLevel: number;
     image: string;
     recommended?: boolean;
+
+    visited?: boolean;
+
+dayTrip?: {
+  possible: boolean;
+  returnToEntrance: boolean;
+  lastDeparture: string;
+  note: string;
+};
   };
 };
 
@@ -23,15 +32,59 @@ export default function SpotCard({ spot }: SpotCardProps) {
     ⭐ おすすめ
   </div>
 )}
-      <Image
-        src={spot.image}
-        alt={spot.name}
-        width={400}
-        height={250}
-        className="h-48 w-full rounded-lg object-contain bg-gray-100"
-      />
+      {spot.visited ? (
+  <Image
+    src={spot.image}
+    alt={spot.name}
+    width={400}
+    height={250}
+    className="h-48 w-full rounded-lg object-contain bg-gray-100"
+  />
+) : (
+  <div className="flex h-48 w-full flex-col items-center justify-center rounded-lg bg-green-50 px-5 text-center">
+    <p className="text-sm font-bold text-green-700">
+      {spot.prefecture}
+    </p>
 
+    <p className="mt-2 text-xl font-bold text-gray-900">
+      {spot.name}
+    </p>
+
+    <p className="mt-3 text-sm text-gray-600">
+      公共交通＋徒歩で行ける場所
+    </p>
+
+    <span className="mt-4 rounded-full bg-white px-3 py-1 text-xs font-bold text-gray-600 shadow-sm">
+      未訪問・交通情報のみ調査済み
+    </span>
+  </div>
+)}
       <h2 className="mt-3 text-xl font-bold">{spot.name}</h2>
+      <div className="mt-2 flex flex-wrap gap-2 text-sm">
+  <span
+  className={
+    spot.visited
+      ? "rounded-full bg-green-100 px-3 py-1 font-bold text-green-800"
+      : "rounded-full bg-gray-100 px-3 py-1 font-bold text-gray-700"
+  }
+>
+  {spot.visited
+    ? "実際に訪問済み"
+    : "未訪問・交通情報のみ調査済み"}
+</span>
+
+  {spot.dayTrip && (
+    <span
+      className={
+        spot.dayTrip.possible
+          ? "rounded-full bg-blue-100 px-3 py-1 font-bold text-blue-800"
+          : "rounded-full bg-gray-100 px-3 py-1 font-bold text-gray-700"
+      }
+    >
+      {spot.dayTrip.possible ? "日帰り可能" : "日帰り困難"}
+    </span>
+  )}
+</div>
       <p className="mt-2 text-gray-600">📍 {spot.prefecture}</p>
 <div className="mt-2">
   <p className="text-sm font-bold text-gray-700">

@@ -64,8 +64,10 @@ export default async function DetailPage({ params }: Props) {
     </p>
 
     <p className="mt-3 text-sm leading-6 text-gray-600">
-      公共交通と徒歩で行ける場所として交通情報を調査しています。
-    </p>
+  {spot.id === 8
+    ? "生野駅からデマンド交通「あさGO」で山奥の黒川地区へ。黒川簾野公民館で降りれば、せせらぎ荘までは徒歩約750m・約11分です。"
+    : "公共交通と徒歩で行ける場所として交通情報を調査しています。"}
+</p>
   </div>
 )}
 

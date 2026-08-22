@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 
 type Props = {
   initialPrefecture: string;
-  initialWalkingMax: string;
   initialDifficulty: string;
   initialKeyword: string;
   initialSort: string;
@@ -14,13 +13,11 @@ type Props = {
 
 export default function SearchPageContent({
   initialPrefecture,
-  initialWalkingMax,
   initialDifficulty,
   initialKeyword,
   initialSort,
 }: Props) {
   const [prefecture, setPrefecture] = useState(initialPrefecture);
-  const [walkingMax, setWalkingMax] = useState(initialWalkingMax);
   const [difficulty, setDifficulty] = useState(initialDifficulty);
   const [keyword, setKeyword] = useState(initialKeyword);
   const [sort, setSort] = useState(initialSort);
@@ -32,10 +29,6 @@ export default function SearchPageContent({
 
     if (prefecture) {
       params.set("prefecture", prefecture);
-    }
-
-    if (walkingMax) {
-      params.set("walkingMax", walkingMax);
     }
     if (difficulty) {
   params.set("difficulty", difficulty);
@@ -50,7 +43,6 @@ if (sort) {
   };
   const handleReset = () => {
   setPrefecture("");
-  setWalkingMax("");
   setDifficulty("");
   setKeyword("");
   setSort("");
@@ -99,26 +91,11 @@ if (sort) {
               <option value="高知県">高知県</option>
               <option value="徳島県">徳島県</option>
               <option value="宮崎県">宮崎県</option>
+              <option value="兵庫県">兵庫県</option>
             </select>
           </div>
 
-          <div>
-            <label className="mb-2 block font-bold">
-              徒歩距離
-            </label>
-
-            <select
-              value={walkingMax}
-              onChange={(event) => setWalkingMax(event.target.value)}
-              className="w-full rounded-lg border p-3"
-            >
-              <option value="">指定なし</option>
-              <option value="1">1km以内</option>
-              <option value="2">2km以内</option>
-              <option value="3">3km以内</option>
-              <option value="5">5km以内</option>
-            </select>
-          </div>
+          
           <div>
   <label className="mb-2 block font-bold">
     難易度

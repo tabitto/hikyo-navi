@@ -7,7 +7,6 @@ import SpotCard from "../components/SpotCard";
 type Props = {
   searchParams: Promise<{
   prefecture?: string;
-  walkingMax?: string;
   difficulty?: string;
   keyword?: string;
   sort?: string;
@@ -17,7 +16,6 @@ type Props = {
 export default async function ResultsPage({ searchParams }: Props) {
   const {
   prefecture,
-  walkingMax,
   difficulty,
   keyword,
   sort,
@@ -34,9 +32,6 @@ const filteredSpots = spots.filter((spot) => {
 
     const walkingDistance = Number.parseFloat(spot.walking);
 
-const matchesWalking =
-  !walkingMax || walkingDistance <= Number(walkingMax);
-
 const matchesDifficulty =
   !difficulty || spot.difficulty === difficulty;
 
@@ -47,7 +42,6 @@ const matchesKeyword =
 
 return (
   matchesPrefecture &&
-  matchesWalking &&
   matchesDifficulty &&
   matchesKeyword
 );
@@ -100,14 +94,12 @@ if (sort === "walking") {
 
           <Link
   href={`/search?prefecture=${encodeURIComponent(
-    prefecture ?? ""
-  )}&walkingMax=${encodeURIComponent(
-    walkingMax ?? ""
-  )}&difficulty=${encodeURIComponent(
-    difficulty ?? ""
-  )}&keyword=${encodeURIComponent(
-    keyword ?? ""
-  )}&sort=${encodeURIComponent(sort ?? "")}`}
+  prefecture ?? ""
+)}&difficulty=${encodeURIComponent(
+  difficulty ?? ""
+)}&keyword=${encodeURIComponent(
+  keyword ?? ""
+)}&sort=${encodeURIComponent(sort ?? "")}`}
   className="text-green-700 underline hover:text-green-900"
 >
   検索条件を変更する
@@ -128,13 +120,13 @@ if (sort === "walking") {
             </p>
 
            <Link
-  href={`/search?prefecture=${encodeURIComponent(prefecture ?? "")}&walkingMax=${encodeURIComponent(
-    walkingMax ?? ""
+  href={`/search?prefecture=${encodeURIComponent(
+    prefecture ?? ""
   )}&difficulty=${encodeURIComponent(
     difficulty ?? ""
-  )}&keyword=${encodeURIComponent(keyword ?? "")}&sort=${encodeURIComponent(
-    sort ?? ""
-  )}`}
+  )}&keyword=${encodeURIComponent(
+    keyword ?? ""
+  )}&sort=${encodeURIComponent(sort ?? "")}`}
 >
   検索条件をリセットする
 </Link>
@@ -164,17 +156,15 @@ if (sort === "walking") {
 <div className="mt-8 flex justify-center gap-4">
   {currentPage > 1 && (
     <Link
-      href={`/results?prefecture=${encodeURIComponent(
-        prefecture ?? ""
-      )}&walkingMax=${encodeURIComponent(
-        walkingMax ?? ""
-      )}&difficulty=${encodeURIComponent(
-        difficulty ?? ""
-      )}&keyword=${encodeURIComponent(
-        keyword ?? ""
-      )}&sort=${encodeURIComponent(
-        sort ?? ""
-      )}&page=${currentPage - 1}`}
+  href={`/results?prefecture=${encodeURIComponent(
+    prefecture ?? ""
+  )}&difficulty=${encodeURIComponent(
+    difficulty ?? ""
+  )}&keyword=${encodeURIComponent(
+    keyword ?? ""
+  )}&sort=${encodeURIComponent(
+    sort ?? ""
+  )}&page=${currentPage - 1}`}
       className="rounded-lg border bg-white px-4 py-2 text-green-700"
     >
       前へ
@@ -183,18 +173,16 @@ if (sort === "walking") {
   <div className="flex gap-2">
   {pageNumbers.map((pageNumber) => (
     <Link
-      key={pageNumber}
-      href={`/results?prefecture=${encodeURIComponent(
-        prefecture ?? ""
-      )}&walkingMax=${encodeURIComponent(
-        walkingMax ?? ""
-      )}&difficulty=${encodeURIComponent(
-        difficulty ?? ""
-      )}&keyword=${encodeURIComponent(
-        keyword ?? ""
-      )}&sort=${encodeURIComponent(
-        sort ?? ""
-      )}&page=${pageNumber}`}
+  key={pageNumber}
+  href={`/results?prefecture=${encodeURIComponent(
+    prefecture ?? ""
+  )}&difficulty=${encodeURIComponent(
+    difficulty ?? ""
+  )}&keyword=${encodeURIComponent(
+    keyword ?? ""
+  )}&sort=${encodeURIComponent(
+    sort ?? ""
+  )}&page=${pageNumber}`}
       className={`rounded-lg px-4 py-2 ${
         currentPage === pageNumber
           ? "bg-green-700 text-white"
@@ -208,17 +196,15 @@ if (sort === "walking") {
 
   {currentPage < totalPages && (
     <Link
-      href={`/results?prefecture=${encodeURIComponent(
-        prefecture ?? ""
-      )}&walkingMax=${encodeURIComponent(
-        walkingMax ?? ""
-      )}&difficulty=${encodeURIComponent(
-        difficulty ?? ""
-      )}&keyword=${encodeURIComponent(
-        keyword ?? ""
-      )}&sort=${encodeURIComponent(
-        sort ?? ""
-      )}&page=${currentPage + 1}`}
+  href={`/results?prefecture=${encodeURIComponent(
+    prefecture ?? ""
+  )}&difficulty=${encodeURIComponent(
+    difficulty ?? ""
+  )}&keyword=${encodeURIComponent(
+    keyword ?? ""
+  )}&sort=${encodeURIComponent(
+    sort ?? ""
+  )}&page=${currentPage + 1}`}
       className="rounded-lg bg-green-700 px-4 py-2 text-white"
     >
       次へ

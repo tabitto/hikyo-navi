@@ -230,7 +230,9 @@ export default async function DetailPage({ params }: Props) {
   id="course"
   className="scroll-mt-4 text-2xl font-bold"
 >
-  実際に使ったルート
+  {spot.returnCourse && spot.returnCourse.length > 0
+    ? "🚩 行きのルート"
+    : "実際に使ったルート"}
 </h2>
 
   <ol className="mt-6">
@@ -274,6 +276,44 @@ export default async function DetailPage({ params }: Props) {
     </li>
   ))}
 </ol>
+
+{spot.returnCourse && spot.returnCourse.length > 0 && (
+  <>
+    <h2 className="mt-8 text-2xl font-bold">
+      🏠 帰りのルート
+    </h2>
+
+    <ol className="mt-6">
+      {spot.returnCourse.map((item, index) => (
+        <li key={index} className="flex gap-3">
+          <div className="flex flex-col items-center">
+            <div className="h-4 w-4 rounded-full bg-green-600" />
+
+            {index < spot.returnCourse.length - 1 && (
+              <div className="h-12 w-0.5 bg-green-200" />
+            )}
+          </div>
+
+          <div className="min-w-0 flex-1 pb-6">
+            <p className="text-sm font-bold text-green-700">
+              {item.time}
+            </p>
+
+            <p className="mt-1 font-bold">
+              {item.title}
+            </p>
+
+            {item.detail && (
+              <p className="mt-1 text-sm leading-6 text-gray-600">
+                {item.detail}
+              </p>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </>
+)}
 </div>
 )}
 <div className="mt-6 rounded-xl border bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
@@ -363,12 +403,16 @@ export default async function DetailPage({ params }: Props) {
   id="hikyo-route"
   className="mb-3 scroll-mt-6 text-2xl font-bold"
 >
-  🗺️ 秘境の入り口から秘境までのモデルコース
+  🗺️ モデルコース
 </h2>
 
 <p className="mb-6 text-gray-700">
-  秘境への行き方や現地での過ごし方の一例です。
+  秘境への行き方と帰り方の一例です。
 </p>
+
+<h3 className="mb-4 text-xl font-bold">
+  🚩 行きのルート
+</h3>
 
           <div className="space-y-0">
             {spot.route.map((route, index) => (
@@ -398,6 +442,45 @@ export default async function DetailPage({ params }: Props) {
               </div>
             ))}
           </div>
+
+ {spot.returnRoute && spot.returnRoute.length > 0 && (
+    <>
+      <h3 className="mb-4 mt-8 text-xl font-bold">
+        🏠 帰りのルート
+      </h3>
+
+      <div className="space-y-0">
+        {spot.returnRoute.map((route, index) => (
+          <div
+            key={`return-${route.place}-${index}`}
+            className="flex gap-4"
+          >
+            <div className="flex flex-col items-center">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full">
+                {route.icon}
+              </div>
+
+              {index < spot.returnRoute.length - 1 && (
+                <div className="h-16 w-1 bg-green-200" />
+              )}
+            </div>
+
+            <div className="pb-8">
+              <h3 className="text-lg font-bold">
+                {route.place}
+              </h3>
+
+              <p className="mt-1 text-gray-700">
+                {route.detail}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  )}
+
+
         </div>
       </div>
       <a

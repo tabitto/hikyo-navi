@@ -414,10 +414,38 @@ export default async function DetailPage({ params }: Props) {
   🚩 行きのルート
 </h3>
 
-          <div className="space-y-0">
-            {spot.route.map((route, index) => (
+          {"routeAlternatives" in spot && spot.routeAlternatives ? (
+  <div className="grid gap-6 md:grid-cols-2">
+    {spot.routeAlternatives.map((alternative, alternativeIndex) => (
+      <div
+        key={`${alternative.title}-${alternativeIndex}`}
+        className="rounded-xl border bg-white p-5"
+      >
+        <h3 className="text-xl font-bold">
+          {alternative.title}
+        </h3>
+
+        <p className="mt-1 mb-6 text-sm text-gray-600">
+          {alternative.description}
+        </p>
+
+        <div className="space-y-0">
+          {alternative.route.map((route, index) => {
+            const timeMatch = route.detail.match(
+              /^(\d{1,2}:\d{2}(?:頃)?)/
+            );
+            const time = timeMatch?.[1] ?? "";
+
+            const detail = time
+              ? route.detail.replace(
+                  /^(\d{1,2}:\d{2}(?:頃)?(?:発|着)?[。のに、\s]*)/,
+                  ""
+                )
+              : route.detail;
+
+            return (
               <div
-                key={`${route.place}-${index}`}
+                key={`${alternativeIndex}-${route.place}-${index}`}
                 className="flex gap-4"
               >
                 <div className="flex flex-col items-center">
@@ -425,45 +453,88 @@ export default async function DetailPage({ params }: Props) {
                     {route.icon}
                   </div>
 
-                  {index < spot.route.length - 1 && (
+                  {index < alternative.route.length - 1 && (
                     <div className="h-16 w-1 bg-green-200" />
                   )}
                 </div>
 
                 <div className="pb-8">
-  {(() => {
-    const timeMatch = route.detail.match(/^(\d{1,2}:\d{2}(?:頃)?)/);
-    const time = timeMatch?.[1] ?? "";
-    const detail =
-  !spot.visited && time
-    ? route.detail.replace(
-        /^(\d{1,2}:\d{2}(?:頃)?(?:発|着)?[。のに、\s]*)/,
-        ""
-      )
-    : route.detail;
+                  {time && (
+                    <p className="text-lg font-bold text-green-700">
+                      {time}
+                    </p>
+                  )}
 
-    return (
-      <>
-        {!spot.visited && time && (
-  <p className="text-lg font-bold text-green-700">
-    {time}
-  </p>
-)}
+                  <h3 className="text-lg font-bold">
+                    {route.place}
+                  </h3>
 
-        <h3 className="text-lg font-bold">
-          {route.place}
-        </h3>
-
-        <p className="mt-1 whitespace-pre-line text-gray-700">
-          {detail.replace(/。/g, "。\n")}
-        </p>
-      </>
-    );
-  })()}
-</div>
+                  <p className="mt-1 whitespace-pre-line text-gray-700">
+                    {detail.replace(/。/g, "。\n")}
+                  </p>
+                </div>
               </div>
-            ))}
+            );
+          })}
+        </div>
+      </div>
+    ))}
+  </div>
+) : (
+  <div className="space-y-0">
+    {spot.route.map((route, index) => (
+      <div
+        key={`${route.place}-${index}`}
+        className="flex gap-4"
+      >
+        <div className="flex flex-col items-center">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full">
+            {route.icon}
           </div>
+
+          {index < spot.route.length - 1 && (
+            <div className="h-16 w-1 bg-green-200" />
+          )}
+        </div>
+
+        <div className="pb-8">
+          {(() => {
+            const timeMatch = route.detail.match(
+              /^(\d{1,2}:\d{2}(?:頃)?)/
+            );
+            const time = timeMatch?.[1] ?? "";
+
+            const detail =
+              !spot.visited && time
+                ? route.detail.replace(
+                    /^(\d{1,2}:\d{2}(?:頃)?(?:発|着)?[。のに、\s]*)/,
+                    ""
+                  )
+                : route.detail;
+
+            return (
+              <>
+                {!spot.visited && time && (
+                  <p className="text-lg font-bold text-green-700">
+                    {time}
+                  </p>
+                )}
+
+                <h3 className="text-lg font-bold">
+                  {route.place}
+                </h3>
+
+                <p className="mt-1 whitespace-pre-line text-gray-700">
+                  {detail.replace(/。/g, "。\n")}
+                </p>
+              </>
+            );
+          })()}
+        </div>
+      </div>
+    ))}
+  </div>
+)}
 
  {spot.returnRoute && spot.returnRoute.length > 0 && (
     <>

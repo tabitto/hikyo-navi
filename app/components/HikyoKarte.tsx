@@ -70,9 +70,11 @@ export default function HikyoKarte({ spot }: Props) {
       {/* デマンド交通カード */}
 <div className="mt-5 rounded-xl bg-green-100 p-4">
   <p className="font-bold text-green-800">
-    🚐 デマンド交通：
-    {spot.demandTransport?.available ? "あり" : "なし"}
-  </p>
+  🚐 {"routeAlternatives" in spot
+    ? "予約制の地域交通："
+    : "デマンド交通："}
+  {spot.demandTransport?.available ? "あり" : "なし"}
+</p>
 
   {spot.demandTransport?.available && (
     <div className="mt-3 grid grid-cols-1 gap-2 text-sm text-gray-700 sm:grid-cols-2">

@@ -431,14 +431,36 @@ export default async function DetailPage({ params }: Props) {
                 </div>
 
                 <div className="pb-8">
-                  <h3 className="text-lg font-bold">
-                    {route.place}
-                  </h3>
+  {(() => {
+    const timeMatch = route.detail.match(/^(\d{1,2}:\d{2}(?:頃)?)/);
+    const time = timeMatch?.[1] ?? "";
+    const detail =
+  !spot.visited && time
+    ? route.detail.replace(
+        /^(\d{1,2}:\d{2}(?:頃)?(?:発|着)?[。のに、\s]*)/,
+        ""
+      )
+    : route.detail;
 
-                  <p className="mt-1 text-gray-700">
-                    {route.detail}
-                  </p>
-                </div>
+    return (
+      <>
+        {!spot.visited && time && (
+  <p className="text-lg font-bold text-green-700">
+    {time}
+  </p>
+)}
+
+        <h3 className="text-lg font-bold">
+          {route.place}
+        </h3>
+
+        <p className="mt-1 whitespace-pre-line text-gray-700">
+          {detail.replace(/。/g, "。\n")}
+        </p>
+      </>
+    );
+  })()}
+</div>
               </div>
             ))}
           </div>
@@ -466,14 +488,36 @@ export default async function DetailPage({ params }: Props) {
             </div>
 
             <div className="pb-8">
-              <h3 className="text-lg font-bold">
-                {route.place}
-              </h3>
+  {(() => {
+    const timeMatch = route.detail.match(/^(\d{1,2}:\d{2}(?:頃)?)/);
+    const time = timeMatch?.[1] ?? "";
+    const detail =
+  !spot.visited && time
+    ? route.detail.replace(
+        /^(\d{1,2}:\d{2}(?:頃)?(?:発|着)?[。のに、\s]*)/,
+        ""
+      )
+    : route.detail;
 
-              <p className="mt-1 text-gray-700">
-                {route.detail}
-              </p>
-            </div>
+    return (
+      <>
+        {!spot.visited && time && (
+          <p className="text-lg font-bold text-green-700">
+  {time}
+</p>
+        )}
+
+        <h3 className="text-lg font-bold">
+          {route.place}
+        </h3>
+
+        <p className="mt-1 whitespace-pre-line text-gray-700">
+          {detail.replace(/。/g, "。\n")}
+        </p>
+      </>
+    );
+  })()}
+</div>
           </div>
         ))}
       </div>

@@ -25,9 +25,11 @@ export default function Home() {
                   車なし秘境ナビ
                 </h1>
 
-                <p className="mt-4 text-base font-medium text-white drop-shadow sm:text-lg">
-                  車がなくても行ける秘境を探そう。
-                </p>
+                <p className="mt-4 text-base font-medium leading-relaxed text-white drop-shadow sm:text-lg">
+  電車・バス・予約制交通・徒歩だけで、
+  <br />
+  車なしで行ける旅先と行き方がわかる。
+</p>
               </div>
             </div>
           </div>
@@ -37,7 +39,7 @@ export default function Home() {
               href="/search"
               className="w-full max-w-3xl rounded-lg bg-green-700 px-8 py-4 text-center font-bold text-white transition hover:bg-green-800"
             >
-              秘境を探す
+              車なしで行ける秘境を探す →
             </Link>
 
             <section className="mt-10">

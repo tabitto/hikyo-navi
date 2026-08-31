@@ -59,22 +59,34 @@ if (sort) {
         </Link>
 
         <h1 className="mb-8 text-4xl font-bold text-green-800">
-          秘境を探す
+          車なしで行ける秘境を探す →
         </h1>
 
-        <div className="space-y-6 rounded-xl bg-white p-6 shadow">
+        <form
+  onSubmit={(event) => {
+    event.preventDefault();
+    handleSearch();
+  }}
+  className="space-y-6 rounded-xl bg-white p-6 shadow"
+>
           <div>
   <label className="mb-2 block font-bold">
     キーワード
   </label>
 
   <input
-    type="text"
-    value={keyword}
-    onChange={(event) => setKeyword(event.target.value)}
-    placeholder="例：下栗、椎葉、長野"
-    className="w-full rounded-lg border p-3"
-  />
+  type="text"
+  value={keyword}
+  onChange={(event) => setKeyword(event.target.value)}
+  onKeyDown={(event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSearch();
+    }
+  }}
+  placeholder="例：下栗、椎葉、長野"
+  className="w-full rounded-lg border p-3"
+/>
 </div>
           <div>
             <label className="mb-2 block font-bold">
@@ -82,16 +94,24 @@ if (sort) {
             </label>
 
             <select
-              value={prefecture}
-              onChange={(event) => setPrefecture(event.target.value)}
-              className="w-full rounded-lg border p-3"
-            >
+  value={prefecture}
+  onChange={(event) => setPrefecture(event.target.value)}
+  onKeyDown={(event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSearch();
+    }
+  }}
+  className="w-full rounded-lg border p-3"
+>
               <option value="">すべて</option>
               <option value="長野県">長野県</option>
               <option value="高知県">高知県</option>
               <option value="徳島県">徳島県</option>
               <option value="宮崎県">宮崎県</option>
               <option value="兵庫県">兵庫県</option>
+              <option value="京都府">京都府</option>
+              <option value="熊本県">熊本県</option>
             </select>
           </div>
 
@@ -102,10 +122,16 @@ if (sort) {
   </label>
 
   <select
-    value={difficulty}
-    onChange={(event) => setDifficulty(event.target.value)}
-    className="w-full rounded-lg border p-3"
-  >
+  value={difficulty}
+  onChange={(event) => setDifficulty(event.target.value)}
+  onKeyDown={(event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSearch();
+    }
+  }}
+  className="w-full rounded-lg border p-3"
+>
     <option value="">指定なし</option>
     <option value="★☆☆☆☆">★☆☆☆☆</option>
     <option value="★★☆☆☆">★★☆☆☆</option>
@@ -120,31 +146,38 @@ if (sort) {
   <select
   value={sort}
   onChange={(event) => setSort(event.target.value)}
+  onKeyDown={(event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSearch();
+    }
+  }}
   className="w-full rounded-lg border p-2"
 >
   <option value="">おすすめ順</option>
-<option value="walking">徒歩距離が短い順</option>
 <option value="difficultyAsc">難易度が低い順</option>
 <option value="difficultyDesc">難易度が高い順</option>
 <option value="name">名前順</option>
 </select>
 </div>
 
-          <button
-            onClick={handleSearch}
-            className="w-full rounded-lg bg-green-700 px-6 py-3 font-bold text-white hover:bg-green-800"
-          >
-            検索する
-          </button>
-          <button
+  <button
+  type="submit"
+  className="w-full rounded-lg bg-green-700 px-6 py-3 font-bold text-white hover:bg-green-800"
+>
+  検索する
+</button>
+
+<button
   type="button"
   onClick={handleReset}
   className="rounded-lg border border-gray-300 bg-white px-6 py-3 text-gray-700 hover:bg-gray-100"
 >
   条件をリセット
 </button>
-        </div>
-      </div>
-    </main>
-  );
+
+</form>
+</div>
+</main>
+);
 }

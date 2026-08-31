@@ -74,7 +74,31 @@ export default async function DetailPage({ params }: Props) {
           <h1 className="mt-2 text-4xl font-bold">
             {spot.name}
           </h1>
-
+{spot.demandTransport?.reservationRequired && (
+  <div className="mt-4 rounded-xl border-2 border-amber-400 bg-amber-50 p-4">
+    <p className="font-bold text-amber-900">
+      ⚠️ この秘境への移動には事前予約が必要です
+    </p>
+    <p className="mt-1 text-sm leading-6 text-amber-900">
+      予約制の交通手段を利用します。予約期限・利用条件を必ず確認してください。
+    </p>
+  </div>
+)}
+{"lastChecked" in spot && spot.lastChecked && (
+  <p className="mt-3 text-sm text-gray-600">
+    交通情報 最終確認：{spot.lastChecked}
+  </p>
+)}
+{"officialTransportUrl" in spot && spot.officialTransportUrl && (
+  <a
+    href={spot.officialTransportUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-3 inline-block rounded-lg border border-green-700 px-4 py-2 text-sm font-bold text-green-700 hover:bg-green-50"
+  >
+    🔗 公式の交通情報を確認する
+  </a>
+)}
          <div
   className={
     spot.visited
@@ -111,6 +135,24 @@ export default async function DetailPage({ params }: Props) {
       {spot.difficultyLevel === 5 && "難しい"}
     </span>
   </div>
+  {"difficultyReasons" in spot &&
+  spot.difficultyReasons &&
+  spot.difficultyReasons.length > 0 && (
+    <div className="mt-3 border-t border-green-200 pt-3">
+      <p className="mb-2 text-sm font-bold text-green-900">
+        この難易度の理由
+      </p>
+
+      <ul className="space-y-1 text-sm text-gray-700">
+        {spot.difficultyReasons.map((reason, index) => (
+          <li key={index} className="flex gap-2">
+            <span>・</span>
+            <span>{reason}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
 </div>
 
           <FavoriteButton spotId={spot.id} />

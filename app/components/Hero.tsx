@@ -40,9 +40,11 @@ return (
             車なし秘境ナビ
           </h1>
 
-          <p className="mt-4 text-base font-medium text-white drop-shadow sm:text-lg">
-            車がなくても行ける秘境を探そう。
-          </p>
+          <p className="mt-4 text-base font-medium leading-relaxed text-white drop-shadow sm:text-lg">
+  電車・バス・予約制交通・徒歩だけで、
+  <br />
+  車なしで行ける旅先と行き方がわかる。
+</p>
         </div>
       </div>
     </div>
@@ -51,7 +53,7 @@ return (
       href="/search"
       className="mx-auto block w-full max-w-sm rounded-xl bg-green-700 px-8 py-4 text-center font-bold text-white transition hover:bg-green-800"
     >
-      秘境を探す
+      車なしで行ける秘境を探す →
     </Link>
   </div>
 );

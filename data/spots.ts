@@ -9,10 +9,18 @@ export const spots = [
     train: "新宿から約8時間",
     difficulty: "★★★★☆",
     difficultyLevel: 4,
+    difficultyReasons: [
+  "公共交通の本数が少ない",
+  "予約制交通の利用が必要で、運行日が限定されている",
+  "徒歩の区間が10キロ以上ある",
+
+],
     routeEntrance: "飯田駅",
     visited: true,
-
-dayTrip: {
+    lastChecked: "2026年8月31日",
+    officialTransportUrl: "https://www.city.iida.lg.jp/soshiki/10/p0182.html",
+  
+  dayTrip: {
   possible: false,
   returnToEntrance: false,
   lastDeparture: "",
@@ -156,10 +164,19 @@ costs: [
     walking: "1.8km",
     walkingDistance: 1.8,
     train: "宮崎空港から約4時間20分",
-    difficulty: "★★★★★",
-　　difficultyLevel: 5,
+    difficulty: "★★★☆☆",
+　　difficultyLevel: 3,
+　　difficultyReasons: [
+  "公共交通の本数が少ない",
+  "予約制交通の利用が必要",
+
+],
    routeEntrance: "日向市駅",
    visited: true,
+   lastChecked: "2026年8月31日",
+officialTransportUrl: "https://www.vill.shiiba.miyazaki.jp/promote/bus.php",
+
+  
     image: "/images/shiiba.JPG",
     access: "日向市駅 → 路線バス → 椎葉村",
     memo: "バスの本数が1日2本と少ないため、事前に時刻表を確認しておくと安心です。",
@@ -300,10 +317,19 @@ stayTime: "1泊",
   walking: "2km",
   walkingDistance: 2,
   train: "新宿から約6時間",
-  difficulty: "★★★☆☆",
-  difficultyLevel: 3,
+  difficulty: "★★☆☆☆",
+  difficultyLevel: 2,
+  difficultyReasons: [
+  "目的地まで公共交通で行ける",
+  "予約制交通の利用が必要",
+  "徒歩の区間がほぼない",
+
+],
   routeEntrance: "信濃森上駅",
   visited: true,
+lastChecked: "2026年8月31日",
+officialTransportUrl: "https://www.vill.hakuba.lg.jp/gyosei/gyoseijoho/mizikanachiikikotsu/hakubademanndo/index.html",
+
   image: "/images/aoni.JPG",
   access: "信濃森上駅 → デマンド交通 → 青鬼集落",
   memo: "デマンド交通は事前予約が必要です。アプリから予約することができます。",
@@ -446,8 +472,16 @@ warnings: [
   train: "岡山駅から約3時間15分（乗り換え、宿泊時間を除く）",
   difficulty: "★★☆☆☆",
   difficultyLevel: 2,
+  difficultyReasons: [
+  "公共交通で目的地まで行ける",
+  "2つのバスの乗り継ぎで1時間のロスタイムがある",
+],
   routeEntrance: "大歩危駅",
   visited: true,
+lastChecked: "2026年8月31日",
+officialTransportUrl: "https://www.miyoshi.i-tokushima.jp/kurashi/kotsu/shiei-bus/",
+
+
   dayTrip: {
   possible: true,
   returnToEntrance: true,
@@ -596,8 +630,18 @@ costs: [
   train: "東京から約6時間",
   difficulty: "★☆☆☆☆",
   difficultyLevel: 1,
+  difficultyReasons: [
+  "公共交通の本数が少ない",
+  "予約制交通の利用が必要",
+  "徒歩の区間がない",
+  "予約制交通とバスがきちんと接続されている",
+
+],
   routeEntrance: "津南駅",
   visited: true,
+  lastChecked: "2026年8月31日",
+officialTransportUrl: "https://www.town.tsunan.niigata.jp/soshiki/somu/koukyoukoutsuu.html",
+
 
   image: "/images/akiyama.JPG",
 
@@ -765,10 +809,17 @@ costs: [
   walking: "0km",
   walkingDistance: 0,
   train: "高知から約1時間30分",
-  difficulty: "★★★☆☆",
-  difficultyLevel: 3,
+  difficulty: "★★☆☆☆",
+  difficultyLevel: 2,
+  difficultyReasons: [
+  "目的地まで公共交通のみで行ける",
+  "予約制交通の利用が必要",
+  "山奥のため虫が多い",
+],
   routeEntrance: "中村駅",
   visited: true,
+  lastChecked: "2026年8月31日",
+officialTransportUrl: "https://www.city.shimanto.lg.jp/soshiki/3/1348.html",
 
 
   image: "/images/kitsune.JPG",
@@ -887,6 +938,9 @@ costs: [
   name: "雲上の民宿 家曽敷",
   prefecture: "徳島県",
   visited: false,
+  lastChecked: "2026年8月31日",
+officialTransportUrl: "https://www.town.tokushima-tsurugi.lg.jp/docs/3550.html",
+
 
   walking: "3.6km",
   walkingDistance: 3.6,
@@ -895,6 +949,10 @@ costs: [
 
   difficulty: "★★★★☆",
   difficultyLevel: 4,
+  difficultyReasons: [
+  "公共交通の本数が少ない",
+  "行き帰り必ず徒歩の区間がある",
+],
 
   routeEntrance: "八面橋バス停（徳島県美馬郡つるぎ町一宇久藪）",
 
@@ -1000,14 +1058,20 @@ returnRoute: [
   name: "せせらぎ荘",
   prefecture: "兵庫県",
   visited: false,
+  lastChecked: "2026年8月31日",
+officialTransportUrl: "https://www.city.asago.hyogo.jp/site/demandkotsu/",
 
   walking: "750m",
   walkingDistance: 0.75,
 
   train: "姫路駅からJR播但線で生野駅へ",
 
-  difficulty: "★★★★☆",
-  difficultyLevel: 4,
+  difficulty: "★★★☆☆",
+  difficultyLevel: 3,
+  difficultyReasons: [
+  "予約制交通の利用が必要だが1時間に1本の割合である",
+  "1キロ以下の徒歩区間がある",
+],
 
   routeEntrance:
     "黒川簾野公民館（あさGO乗降場所 No.54）",
@@ -1150,6 +1214,8 @@ returnRoute: [
   name: "椿山集落",
   prefecture: "高知県",
   visited: false,
+  lastChecked: "2026年8月31日",
+officialTransportUrl: "https://www.town.niyodogawa.lg.jp/download/?fid=22172&id=3201&t=LD",
 
   walking: "6km",
   walkingDistance: 6,
@@ -1158,6 +1224,12 @@ returnRoute: [
 
   difficulty: "★★★★★",
   difficultyLevel: 5,
+  difficultyReasons: [
+  "公共交通の本数が少ない",
+  "予約制交通の利用が必要",
+  "予約制交通の運行曜日が金曜日だけ",
+  "公共交通のみでの日帰りが困難",
+],
 
   routeEntrance:
   "大崎バス停 高知県吾川郡仁淀川町大崎",
@@ -1393,12 +1465,19 @@ returnRoute: [
   name: "暮らす宿 HANARE",
   prefecture: "奈良県",
   visited: false,
+  lastChecked: "2026年8月31日",
+officialTransportUrl: "https://www.vill.kawakami.nara.jp/life/docs/2017012700017/file_contents/heizitsu.pdf",
 
   walking: "2.3km",
   walkingDistance: 2.3,
 
   difficulty: "★★★☆☆",
   difficultyLevel: 3,
+difficultyReasons: [
+  "公共交通の本数が少ない",
+  "徒歩の区間がある",
+  "予約制に交通の利用はない",
+],
 
   routeEntrance: "白川渡バス停",
 
@@ -1605,12 +1684,20 @@ returnRoute: [
   name: "農家民泊 温古里（ほっこり）",
   prefecture: "京都府",
   visited: false,
+  lastChecked: "2026年8月31日",
+officialTransportUrl: "https://www.city.kyotango.lg.jp/material/files/group/4/guidebooksingle0711.pdf",
 
   walking: "900m",
   walkingDistance: 0.9,
 
   difficulty: "★★★★☆",
   difficultyLevel: 4,
+  difficultyReasons: [
+  "公共交通の本数が少ない",
+  "予約制交通の利用が必要",
+  "バス同士の乗り継ぎで1時間の待ちがある",
+  "1キロ以下の徒歩区間あり",
+],
 
   routeEntrance: "弥栄病院前",
 
@@ -1857,12 +1944,18 @@ returnCourse: [
   name: "民宿 平家荘",
   prefecture: "熊本県",
   visited: false,
+  lastChecked: "2026年8月31日",
+officialTransportUrl: "https://goka.sakura.ne.jp/gokashin/",
 
   walking: "基本ルートは徒歩移動ほぼなし",
   walkingDistance: 0,
 
   difficulty: "★★★★★",
   difficultyLevel: 5,
+  difficultyReasons: [
+  "予約制交通の利用が必要",
+  "予約制交通は地元民優先のため乗れない場合がある",
+],
 
   routeEntrance: "砥用中央バス停",
 

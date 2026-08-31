@@ -223,191 +223,17 @@ export default async function DetailPage({ params }: Props) {
 </div>
 
 </div>
-          
-          {spot.visited && (
-          <div className="mt-6 rounded-xl border bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
-  <h2
-  id="course"
-  className="scroll-mt-4 text-2xl font-bold"
->
-  {spot.returnCourse && spot.returnCourse.length > 0
-    ? "🚩 行きのルート"
-    : "実際に使ったルート"}
-</h2>
-
-  <ol className="mt-6">
-  {spot.modelCourse?.map((item, index) => (
-    <li key={index} className="flex gap-3">
-      <div className="flex flex-col items-center">
-        <div className="h-4 w-4 rounded-full bg-green-600" />
-
-        {index < spot.modelCourse.length - 1 && (
-          <div className="h-12 w-0.5 bg-green-200" />
-        )}
-      </div>
-
-      {typeof item === "string" ? (
-        <p className="min-w-0 flex-1 pb-6 text-sm leading-7 sm:text-base">
-          {item}
-        </p>
-      ) : (
-        <div
-  className={
-    "type" in item && item.type === "stay"
-      ? "min-w-0 flex-1 rounded-xl border border-amber-200 bg-amber-50 p-3 pb-4"
-      : "min-w-0 flex-1 pb-6"
-  }
->
-          <p className="text-sm font-bold text-green-700">
-            {item.time}
-          </p>
-
-          <p className="mt-1 font-bold">
-            {item.title}
-          </p>
-
-          {item.detail && (
-            <p className="mt-1 text-sm leading-6 text-gray-600">
-              {item.detail}
-            </p>
-          )}
-        </div>
-      )}
-    </li>
-  ))}
-</ol>
-
-{spot.returnCourse && spot.returnCourse.length > 0 && (
-  <>
-    <h2 className="mt-8 text-2xl font-bold">
-      🏠 帰りのルート
-    </h2>
-
-    <ol className="mt-6">
-      {spot.returnCourse.map((item, index) => (
-        <li key={index} className="flex gap-3">
-          <div className="flex flex-col items-center">
-            <div className="h-4 w-4 rounded-full bg-green-600" />
-
-            {index < spot.returnCourse.length - 1 && (
-              <div className="h-12 w-0.5 bg-green-200" />
-            )}
-          </div>
-
-          <div className="min-w-0 flex-1 pb-6">
-            <p className="text-sm font-bold text-green-700">
-              {item.time}
-            </p>
-
-            <p className="mt-1 font-bold">
-              {item.title}
-            </p>
-
-            {item.detail && (
-              <p className="mt-1 text-sm leading-6 text-gray-600">
-                {item.detail}
-              </p>
-            )}
-          </div>
-        </li>
-      ))}
-    </ol>
-  </>
-)}
-</div>
-)}
-<div className="mt-6 rounded-xl border bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
-  <h2 className="text-2xl font-bold">
-    持ち物チェックリスト
-  </h2>
-
-  <ul className="mt-4 space-y-3">
-    {spot.checklist?.map((item, index) => (
-      <li key={index} className="flex items-center gap-3">
-        <span className="flex h-6 w-6 items-center justify-center rounded border border-green-600 text-green-700">
-          ✓
-        </span>
-        <span>{item}</span>
-      </li>
-    ))}
-  </ul>
-</div>
-{spot.visited && (
-<div className="mt-6 rounded-xl border bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
-  <h2
-  id="cost"
-  className="scroll-mt-4 text-2xl font-bold"
->
-  実際にかかった費用
-</h2>
-
-  <div className="mt-4 divide-y">
-    {spot.costs?.map((cost, index) => (
-      <div
-        key={index}
-        className="flex flex-col gap-1 py-3 sm:flex-row sm:items-start sm:justify-between"
-      >
-        <span>{cost.item}</span>
-
-        <span className="font-bold sm:text-right">
-  {cost.price}
-</span>
-      </div>
-    ))}
-  </div>
-</div>
-)}
-
-          <div className="mt-8 rounded-xl border border-yellow-300 bg-yellow-50 p-4 sm:p-6">
-  <h2
-  id="warning"
-  className="scroll-mt-4 text-xl font-bold text-yellow-900"
->
-  注意しておきたいポイント
-</h2>
-
-  <ul className="mt-4 space-y-3 text-yellow-950">
-    {spot.pitfalls?.map((pitfall, index) => (
-      <li key={index} className="flex gap-3">
-        <span>・</span>
-        <span>{pitfall}</span>
-      </li>
-    ))}
-  </ul>
-</div>
-{spot.noteUrl && (
-  <div className="mt-10 rounded-2xl border border-yellow-200 bg-yellow-50 p-6">
-    <h2 className="text-xl font-bold text-yellow-900">
-      📖 実際に行った体験をもっと詳しく知りたい方へ
-    </h2>
-
-    <p className="mt-3 text-gray-700">
-      現地で困ったことや、公共交通でスムーズに行くコツ、
-      実際の旅の流れをnoteにまとめています。
-    </p>
-
-    <a
-      href={spot.noteUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="mt-5 inline-block rounded-xl bg-yellow-500 px-6 py-3 font-bold text-white transition hover:bg-yellow-600"
-    >
-      車なしで行くための完全ガイドを見る →
-    </a>
-  </div>
-)}
-
           <hr className="my-8" />
 
           <h2
   id="hikyo-route"
   className="mb-3 scroll-mt-6 text-2xl font-bold"
 >
-  🗺️ モデルコース
+  🗺️ 車なしモデルコース
 </h2>
 
 <p className="mb-6 text-gray-700">
-  秘境への行き方と帰り方の一例です。
+  現在の交通情報をもとにした、車を使わず訪れるための参考ルートです。
 </p>
 
 <h3 className="mb-4 text-xl font-bold">
@@ -594,6 +420,182 @@ export default async function DetailPage({ params }: Props) {
       </div>
     </>
   )}
+          {spot.visited && (
+          <div className="mt-6 rounded-xl border bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
+  <h2
+  id="course"
+  className="scroll-mt-4 text-2xl font-bold"
+>
+  👣 実際に使ったルート（訪問時）
+</h2>
+<p className="mt-2 mb-6 text-gray-700">
+  実際に訪れた際に利用した交通手段・時刻・徒歩ルートです。現在のダイヤとは異なる場合があります。
+</p>
+
+  <ol className="mt-6">
+  {spot.modelCourse?.map((item, index) => (
+    <li key={index} className="flex gap-3">
+      <div className="flex flex-col items-center">
+        <div className="h-4 w-4 rounded-full bg-green-600" />
+
+        {index < spot.modelCourse.length - 1 && (
+          <div className="h-12 w-0.5 bg-green-200" />
+        )}
+      </div>
+
+      {typeof item === "string" ? (
+        <p className="min-w-0 flex-1 pb-6 text-sm leading-7 sm:text-base">
+          {item}
+        </p>
+      ) : (
+        <div
+  className={
+    "type" in item && item.type === "stay"
+      ? "min-w-0 flex-1 rounded-xl border border-amber-200 bg-amber-50 p-3 pb-4"
+      : "min-w-0 flex-1 pb-6"
+  }
+>
+          <p className="text-sm font-bold text-green-700">
+            {item.time}
+          </p>
+
+          <p className="mt-1 font-bold">
+            {item.title}
+          </p>
+
+          {item.detail && (
+            <p className="mt-1 text-sm leading-6 text-gray-600">
+              {item.detail}
+            </p>
+          )}
+        </div>
+      )}
+    </li>
+  ))}
+</ol>
+
+{spot.returnCourse && spot.returnCourse.length > 0 && (
+  <>
+    <h2 className="mt-8 text-2xl font-bold">
+      🏠 帰りのルート
+    </h2>
+
+    <ol className="mt-6">
+      {spot.returnCourse.map((item, index) => (
+        <li key={index} className="flex gap-3">
+          <div className="flex flex-col items-center">
+            <div className="h-4 w-4 rounded-full bg-green-600" />
+
+            {index < spot.returnCourse.length - 1 && (
+              <div className="h-12 w-0.5 bg-green-200" />
+            )}
+          </div>
+
+          <div className="min-w-0 flex-1 pb-6">
+            <p className="text-sm font-bold text-green-700">
+              {item.time}
+            </p>
+
+            <p className="mt-1 font-bold">
+              {item.title}
+            </p>
+
+            {item.detail && (
+              <p className="mt-1 text-sm leading-6 text-gray-600">
+                {item.detail}
+              </p>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </>
+)}
+</div>
+)}
+<div className="mt-6 rounded-xl border bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
+  <h2 className="text-2xl font-bold">
+    持ち物チェックリスト
+  </h2>
+
+  <ul className="mt-4 space-y-3">
+    {spot.checklist?.map((item, index) => (
+      <li key={index} className="flex items-center gap-3">
+        <span className="flex h-6 w-6 items-center justify-center rounded border border-green-600 text-green-700">
+          ✓
+        </span>
+        <span>{item}</span>
+      </li>
+    ))}
+  </ul>
+</div>
+          
+{spot.visited && (
+<div className="mt-6 rounded-xl border bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
+  <h2
+  id="cost"
+  className="scroll-mt-4 text-2xl font-bold"
+>
+  実際にかかった費用
+</h2>
+
+  <div className="mt-4 divide-y">
+    {spot.costs?.map((cost, index) => (
+      <div
+        key={index}
+        className="flex flex-col gap-1 py-3 sm:flex-row sm:items-start sm:justify-between"
+      >
+        <span>{cost.item}</span>
+
+        <span className="font-bold sm:text-right">
+  {cost.price}
+</span>
+      </div>
+    ))}
+  </div>
+</div>
+)}
+
+          <div className="mt-8 rounded-xl border border-yellow-300 bg-yellow-50 p-4 sm:p-6">
+  <h2
+  id="warning"
+  className="scroll-mt-4 text-xl font-bold text-yellow-900"
+>
+  注意しておきたいポイント
+</h2>
+
+  <ul className="mt-4 space-y-3 text-yellow-950">
+    {spot.pitfalls?.map((pitfall, index) => (
+      <li key={index} className="flex gap-3">
+        <span>・</span>
+        <span>{pitfall}</span>
+      </li>
+    ))}
+  </ul>
+</div>
+{spot.noteUrl && (
+  <div className="mt-10 rounded-2xl border border-yellow-200 bg-yellow-50 p-6">
+    <h2 className="text-xl font-bold text-yellow-900">
+      📖 実際に行った体験をもっと詳しく知りたい方へ
+    </h2>
+
+    <p className="mt-3 text-gray-700">
+      現地で困ったことや、公共交通でスムーズに行くコツ、
+      実際の旅の流れをnoteにまとめています。
+    </p>
+
+    <a
+      href={spot.noteUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-5 inline-block rounded-xl bg-yellow-500 px-6 py-3 font-bold text-white transition hover:bg-yellow-600"
+    >
+      車なしで行くための完全ガイドを見る →
+    </a>
+  </div>
+)}
+
+
 
 
         </div>

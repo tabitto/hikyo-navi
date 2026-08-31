@@ -1215,7 +1215,7 @@ returnRoute: [
   prefecture: "高知県",
   visited: false,
   lastChecked: "2026年8月31日",
-officialTransportUrl: "https://www.town.niyodogawa.lg.jp/download/?fid=22172&id=3201&t=LD",
+officialTransportUrl: "https://www.town.niyodogawa.lg.jp/download/?t=LD&id=1490&fid=21446",
 
   walking: "6km",
   walkingDistance: 6,
@@ -1685,7 +1685,7 @@ difficultyReasons: [
   prefecture: "京都府",
   visited: false,
   lastChecked: "2026年8月31日",
-officialTransportUrl: "https://www.city.kyotango.lg.jp/material/files/group/4/guidebooksingle0711.pdf",
+officialTransportUrl: "https://www.city.kyotango.lg.jp/material/files/group/4/jikkuhyou0803.pdf",
 
   walking: "900m",
   walkingDistance: 0.9,
@@ -1945,7 +1945,7 @@ returnCourse: [
   prefecture: "熊本県",
   visited: false,
   lastChecked: "2026年8月31日",
-officialTransportUrl: "https://goka.sakura.ne.jp/gokashin/",
+officialTransportUrl: "https://www.sankobus.jp/",
 
   walking: "基本ルートは徒歩移動ほぼなし",
   walkingDistance: 0,

@@ -1,9 +1,10 @@
 export const spots = [
   {
-    id: 1,
-    name: "下栗の里",
-    sortName: "しもぐりのさと",
-    prefecture: "長野県",
+  id: 1,
+  name: "下栗の里",
+  sortName: "しもぐりのさと",
+  category: "秘境",
+  prefecture: "長野県",
     walking: "0km",
     walkingDistance: 0,
     train: "新宿から約8時間",
@@ -161,6 +162,7 @@ costs: [
     sortName: "しいばそん",
     recommended: true,
     prefecture: "宮崎県",
+    category: "秘境",
     walking: "1.8km",
     walkingDistance: 1.8,
     train: "宮崎空港から約4時間20分",
@@ -314,6 +316,7 @@ stayTime: "1泊",
   name: "青鬼集落",
   sortName: "あおにしゅうらく",
   prefecture: "長野県",
+  category: "秘境",
   walking: "2km",
   walkingDistance: 2,
   train: "新宿から約6時間",
@@ -467,6 +470,7 @@ warnings: [
   name: "祖谷渓",
   sortName: "いやけい",
   prefecture: "徳島県",
+  category: "秘境",
   walking: "0km",
   walkingDistance: 0,
   train: "岡山駅から約3時間15分（乗り換え、宿泊時間を除く）",
@@ -625,6 +629,7 @@ costs: [
   name: "秋山郷（切明温泉）",
   sortName: "あきやまごう",
   prefecture: "長野県",
+  category: "秘境",
   walking: "0km",
   walkingDistance: 0,
   train: "東京から約6時間",
@@ -806,6 +811,7 @@ costs: [
   name: "古民家宿 寝つきいいキツネ",
   sortName: "ねつきいいきつね",
   prefecture: "高知県",
+  category: "秘境",
   walking: "0km",
   walkingDistance: 0,
   train: "高知から約1時間30分",
@@ -937,6 +943,7 @@ costs: [
   id: 7,
   name: "雲上の民宿 家曽敷",
   prefecture: "徳島県",
+  category: "秘境",
   visited: false,
   lastChecked: "2026年8月31日",
 officialTransportUrl: "https://www.town.tokushima-tsurugi.lg.jp/docs/3550.html",
@@ -1057,6 +1064,7 @@ returnRoute: [
   id: 8,
   name: "せせらぎ荘",
   prefecture: "兵庫県",
+  category: "秘境",
   visited: false,
   lastChecked: "2026年8月31日",
 officialTransportUrl: "https://www.city.asago.hyogo.jp/site/demandkotsu/",
@@ -1213,6 +1221,7 @@ returnRoute: [
   id: 9,
   name: "椿山集落",
   prefecture: "高知県",
+  category: "秘境",
   visited: false,
   lastChecked: "2026年8月31日",
 officialTransportUrl: "https://www.town.niyodogawa.lg.jp/download/?t=LD&id=1490&fid=21446",
@@ -1464,6 +1473,7 @@ officialTransportUrl: "https://www.town.niyodogawa.lg.jp/download/?t=LD&id=1490&
   id: 10,
   name: "暮らす宿 HANARE",
   prefecture: "奈良県",
+  category: "秘境",
   visited: false,
   lastChecked: "2026年8月31日",
 officialTransportUrl: "https://www.vill.kawakami.nara.jp/life/docs/2017012700017/file_contents/heizitsu.pdf",
@@ -1683,6 +1693,7 @@ difficultyReasons: [
   id: 11,
   name: "農家民泊 温古里（ほっこり）",
   prefecture: "京都府",
+  category: "秘境",
   visited: false,
   lastChecked: "2026年8月31日",
 officialTransportUrl: "https://www.city.kyotango.lg.jp/material/files/group/4/jikkuhyou0803.pdf",
@@ -1943,6 +1954,7 @@ returnCourse: [
   id: 12,
   name: "民宿 平家荘",
   prefecture: "熊本県",
+  category: "秘境",
   visited: false,
   lastChecked: "2026年8月31日",
 officialTransportUrl: "https://www.sankobus.jp/",
@@ -2218,6 +2230,7 @@ officialTransportUrl: "https://www.sankobus.jp/",
   id: 13,
   name: "民宿ますたろう荘",
   prefecture: "宮崎県",
+  category: "秘境",
   visited: false,
 
   lastChecked: "2026年9月3日",
@@ -2375,5 +2388,177 @@ officialTransportUrl: "https://www.sankobus.jp/",
     "山間部にはコンビニなどがないため、必要な飲み物や携行品は事前に準備してください。",
     "公共交通の時刻・運行日・予約条件は変更される場合があります。出発前に最新情報を確認してください。",
   ],
+},
+{
+  id: 14,
+  name: "笹の滝",
+  prefecture: "奈良県",
+  category: "車なし穴場",
+  visited: false,
+
+  lastChecked: "2026年9月7日",
+
+  walking: "行き約12.8km・帰り約5.6km",
+  walkingDistance: 18.4,
+
+  difficulty: "★★★★★",
+  difficultyLevel: 5,
+
+  difficultyReasons: [
+    "公共交通だけでは笹の滝まで直接到達できない",
+    "行きは滝川口から笹の滝まで約12.8km歩く",
+    "帰りは笹の滝から奥里まで約5.6km歩く",
+    "徒歩区間が合計約18.4kmある",
+    "十津川村営バスと奈良交通を組み合わせる必要がある",
+  ],
+　image: "/images/sasanotaki.jpg",
+feature: "日本の滝100選に選ばれている、十津川村の山深い場所にある滝",
+  routeEntrance: "滝川口",
+ modelCourse: [
+  {
+    time: "7:46",
+    title: "新宮駅",
+    detail:
+      "奈良交通の大和八木駅行きに乗車します。",
+  },
+  {
+    time: "10:39",
+    title: "滝川口",
+    detail:
+      "ここから笹の滝まで徒歩で向かいます。",
+  },
+  {
+    time: "10:39〜13:09",
+    title: "滝川口 → 笹の滝",
+    detail:
+      "約12.8km、約2時間40分歩きます。",
+  },
+  {
+    time: "13:09",
+    title: "笹の滝",
+    detail:
+      "14:00まで滞在します。",
+  },
+],
+ returnCourse: [
+  {
+    time: "14:00",
+    title: "笹の滝 → 奥里",
+    detail:
+      "奥里バス停まで約5.6km、約1時間30分歩きます。",
+  },
+  {
+    time: "15:30",
+    title: "奥里",
+    detail:
+      "15:46発の十津川村営バスに乗車します。",
+  },
+  {
+    time: "16:26",
+    title: "上野地",
+    detail:
+      "17:00発の奈良交通・新宮駅行きに乗り換えます。",
+  },
+  {
+    time: "20:22",
+    title: "新宮駅",
+    detail:
+      "車なしでの笹の滝の日帰り旅は終了です。",
+  },
+],
+  route: [
+  {
+    icon: "🚉",
+    place: "新宮駅",
+    detail:
+      "7:46発。奈良交通の大和八木駅行きに乗車します。",
+  },
+  {
+    icon: "🚌",
+    place: "滝川口",
+    detail:
+      "10:39着。ここから笹の滝まで徒歩で向かいます。",
+  },
+  {
+    icon: "🚶",
+    place: "滝川口 → 笹の滝",
+    detail:
+      "約12.8km、約2時間40分歩きます。",
+  },
+  {
+    icon: "💧",
+    place: "笹の滝",
+    detail:
+      "13:09着。14:00まで滞在します。",
+  },
+],
+returnRoute: [
+  {
+    icon: "🚶",
+    place: "笹の滝 → 奥里",
+    detail:
+      "14:00発。奥里バス停まで約5.6km、約1時間30分歩きます。",
+  },
+  {
+    icon: "🚌",
+    place: "奥里",
+    detail:
+      "15:30着。15:46発の十津川村営バスに乗車します。",
+  },
+  {
+    icon: "🚌",
+    place: "上野地",
+    detail:
+      "16:26着。奈良交通の新宮駅行きに乗り換えます。",
+  },
+  {
+    icon: "🚌",
+    place: "上野地",
+    detail:
+      "17:00発。奈良交通の新宮駅行きに乗車します。",
+  },
+  {
+    icon: "🚉",
+    place: "新宮駅",
+    detail:
+      "20:22着。車なしでの笹の滝への旅は終了です。",
+  },
+],
+busFrequency: "非常に少ない",
+convenienceStore: "なし",
+toilet: "なし",
+signal: "要確認",
+vendingMachine: "なし",
+restaurant: "なし",
+stayTime: "新宮駅から日帰り",
+recommendedItems: [
+  "現金",
+  "十分な飲み物",
+  "行動食",
+  "雨具",
+  "歩きやすい靴",
+  "モバイルバッテリー",
+  "長距離徒歩に適した服装",
+],
+warnings: [
+  "徒歩区間は往復合計約18.4kmあります。",
+  "行きは滝川口から笹の滝まで約12.8kmの長距離徒歩です。",
+  "帰りの十津川村営バスに乗り遅れると、その後の旅程が成立しなくなる可能性があります。",
+  "山間部を長時間歩くため、天候・体調・日没時刻を十分に確認してください。",
+  "飲み物や食べ物は出発前に準備してください。",
+],
+pitfalls: [
+  "行きは滝川口から笹の滝まで約12.8km、約2時間40分歩きます。",
+  "帰りは笹の滝から奥里バス停まで約5.6km、約1時間30分歩きます。",
+  "奥里15:46発の十津川村営バスに乗り遅れると、その後の行程が成立しなくなる可能性があります。",
+  "徒歩区間は合計約18.4kmあるため、体力と時間に余裕を持って計画してください。",
+  "山間部を長時間歩くため、天候・道路状況・日没時刻を事前に確認してください。",
+  "飲み物や行動食は新宮駅を出発する前に準備してください。",
+],
+officialTransportUrl:
+  "https://www.vill.totsukawa.lg.jp/life/transport/bus/",
+mapUrl:
+  "https://www.google.com/maps?q=笹の滝+奈良県十津川村&output=embed",
+
 },
 ];

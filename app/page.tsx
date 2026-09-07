@@ -34,13 +34,35 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col items-center gap-4">
-            <Link
-              href="/search"
-              className="w-full max-w-3xl rounded-lg bg-green-700 px-8 py-4 text-center font-bold text-white transition hover:bg-green-800"
-            >
-              車なしで行ける秘境を探す →
-            </Link>
+          <div className="grid gap-4 sm:grid-cols-2">
+
+  <Link
+    href="/search?category=秘境"
+    className="rounded-2xl border border-green-200 bg-white p-6 text-left shadow-sm transition hover:shadow-md"
+  >
+    <p className="text-2xl font-bold text-green-800">
+      🏔️ 秘境
+    </p>
+
+    <p className="mt-2 text-sm leading-6 text-gray-600">
+      山奥の集落や、人里離れた場所への行き方を探します。
+    </p>
+  </Link>
+
+  <Link
+    href="/search?category=車なし穴場"
+    className="rounded-2xl border border-green-200 bg-white p-6 text-left shadow-sm transition hover:shadow-md"
+  >
+    <p className="text-2xl font-bold text-green-800">
+      🚶 車なし穴場
+    </p>
+
+    <p className="mt-2 text-sm leading-6 text-gray-600">
+      車がないと行けなさそうな観光地への行き方を探します。
+    </p>
+  </Link>
+
+</div>
 
             <section className="mt-10">
   <h2 className="text-center text-2xl font-bold text-green-800 sm:text-3xl">
@@ -182,7 +204,6 @@ export default function Home() {
               ❤️ 行ってみたい一覧
             </Link>
           </div>
-        </div>
 
         <h2 className="mt-12 text-center text-3xl font-bold text-green-800">
           ⭐ おすすめの秘境

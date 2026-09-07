@@ -9,6 +9,7 @@ type Props = {
   initialDifficulty: string;
   initialKeyword: string;
   initialSort: string;
+  initialCategory: string;
 };
 
 export default function SearchPageContent({
@@ -16,11 +17,13 @@ export default function SearchPageContent({
   initialDifficulty,
   initialKeyword,
   initialSort,
+  initialCategory,
 }: Props) {
   const [prefecture, setPrefecture] = useState(initialPrefecture);
   const [difficulty, setDifficulty] = useState(initialDifficulty);
   const [keyword, setKeyword] = useState(initialKeyword);
   const [sort, setSort] = useState(initialSort);
+  const [category, setCategory] = useState(initialCategory);
 
   const router = useRouter();
 
@@ -32,6 +35,9 @@ export default function SearchPageContent({
     }
     if (difficulty) {
   params.set("difficulty", difficulty);
+}
+    if (category) {
+  params.set("category", category);
 }
      if (keyword) {
   params.set("keyword", keyword);
@@ -59,7 +65,9 @@ if (sort) {
         </Link>
 
         <h1 className="mb-8 text-4xl font-bold text-green-800">
-          車なしで行ける秘境を探す →
+          {initialCategory === "車なし穴場"
+  ? "車なしで行ける穴場を探す →"
+  : "車なしで行ける秘境を探す →"}
         </h1>
 
         <form
@@ -115,7 +123,6 @@ if (sort) {
             </select>
           </div>
 
-          
           <div>
   <label className="mb-2 block font-bold">
     難易度

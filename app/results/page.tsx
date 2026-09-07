@@ -11,6 +11,7 @@ type Props = {
   keyword?: string;
   sort?: string;
   page?: string;
+  category?: string;
 }>;
 };
 export default async function ResultsPage({ searchParams }: Props) {
@@ -20,6 +21,7 @@ export default async function ResultsPage({ searchParams }: Props) {
   keyword,
   sort,
   page,
+  category,
 } = await searchParams;
 
   console.log(spots.map((spot) => ({
@@ -27,21 +29,26 @@ export default async function ResultsPage({ searchParams }: Props) {
   sortName: spot?.sortName,
 })));
 const filteredSpots = spots.filter((spot) => {
-    const matchesPrefecture =
-      !prefecture || spot.prefecture === prefecture;
+  const matchesPrefecture =
+    !prefecture || spot.prefecture === prefecture;
 
-    const walkingDistance = Number.parseFloat(spot.walking);
+  const matchesCategory =
+  category === "車なし穴場"
+    ? spot.category === "車なし穴場"
+    : spot.category !== "車なし穴場";
+  const walkingDistance = Number.parseFloat(spot.walking);
 
-const matchesDifficulty =
-  !difficulty || spot.difficulty === difficulty;
+  const matchesDifficulty =
+    !difficulty || spot.difficulty === difficulty;
 
-const matchesKeyword =
-  !keyword ||
-  spot.name.includes(keyword) ||
-  spot.prefecture.includes(keyword);
+  const matchesKeyword =
+    !keyword ||
+    spot.name.includes(keyword) ||
+    spot.prefecture.includes(keyword);
 
 return (
   matchesPrefecture &&
+  matchesCategory &&
   matchesDifficulty &&
   matchesKeyword
 );
@@ -116,7 +123,9 @@ if (sort === "walking") {
         {filteredSpots.length === 0 ? (
           <div className="rounded-xl bg-white p-8 shadow">
             <p className="text-lg font-bold">
-              条件に合う秘境が見つかりませんでした。
+              {category === "車なし穴場"
+  ? "条件に合う車なしの穴場が見つかりませんでした。"
+  : "条件に合う秘境が見つかりませんでした。"}
             </p>
 
            <Link

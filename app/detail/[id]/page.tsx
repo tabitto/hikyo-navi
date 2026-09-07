@@ -74,6 +74,11 @@ export default async function DetailPage({ params }: Props) {
           <h1 className="mt-2 text-4xl font-bold">
             {spot.name}
           </h1>
+          <div className="mt-3">
+  <span className="inline-block rounded-full bg-green-100 px-3 py-1 text-sm font-bold text-green-800">
+    {spot.category}
+  </span>
+</div>
 {spot.demandTransport?.reservationRequired && (
   <div className="mt-4 rounded-xl border-2 border-amber-400 bg-amber-50 p-4">
     <p className="font-bold text-amber-900">
@@ -238,9 +243,11 @@ export default async function DetailPage({ params }: Props) {
   </h2>
 
   <p className="mt-2 text-gray-700">
-    まずは公共交通で「{spot.routeEntrance}」を目指します。
-    ここから先は、秘境ナビの実体験ルートを参考にしてください。
-  </p>
+  まずは公共交通で「{spot.routeEntrance}」を目指します。
+  {spot.visited
+    ? "ここから先は、秘境ナビの実体験ルートを参考にしてください。"
+    : "ここから先は、公開されている交通情報をもとにした車なしモデルコースを参考にしてください。"}
+</p>
 
   <RouteToEntranceButton
   entranceName={spot.routeEntrance}
@@ -281,6 +288,11 @@ export default async function DetailPage({ params }: Props) {
 <h3 className="mb-4 text-xl font-bold">
   🚩 行きのルート
 </h3>
+{spot.id === 14 && (
+  <p className="mt-1 text-lg font-bold text-green-700">
+    平日・休日共通
+  </p>
+)}
 
           {"routeAlternatives" in spot && spot.routeAlternatives ? (
   <div className="grid gap-6 md:grid-cols-2">
@@ -350,7 +362,7 @@ export default async function DetailPage({ params }: Props) {
   </div>
 ) : (
   <div className="space-y-0">
-    {spot.route.map((route, index) => (
+    {spot.route?.map((route, index) => (
       <div
         key={`${route.place}-${index}`}
         className="flex gap-4"
@@ -360,7 +372,7 @@ export default async function DetailPage({ params }: Props) {
             {route.icon}
           </div>
 
-          {index < spot.route.length - 1 && (
+          {index < (spot.route?.length ?? 0) - 1 && (
             <div className="h-16 w-1 bg-green-200" />
           )}
         </div>
@@ -409,6 +421,11 @@ export default async function DetailPage({ params }: Props) {
       <h3 className="mb-4 mt-8 text-xl font-bold">
         🏠 帰りのルート
       </h3>
+      {spot.id === 14 && (
+  <p className="mt-2 text-lg font-bold text-green-700">
+    平日・休日共通
+  </p>
+)}
 
       <div className="space-y-0">
         {spot.returnRoute.map((route, index) => (
@@ -555,22 +572,24 @@ export default async function DetailPage({ params }: Props) {
 )}
 </div>
 )}
-<div className="mt-6 rounded-xl border bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
-  <h2 className="text-2xl font-bold">
-    持ち物チェックリスト
-  </h2>
+{spot.checklist && spot.checklist.length > 0 && (
+  <div className="mt-6 rounded-xl border bg-white p-4 shadow-sm sm:mt-8 sm:p-6">
+    <h2 className="text-2xl font-bold">
+      持ち物チェックリスト
+    </h2>
 
-  <ul className="mt-4 space-y-3">
-    {spot.checklist?.map((item, index) => (
-      <li key={index} className="flex items-center gap-3">
-        <span className="flex h-6 w-6 items-center justify-center rounded border border-green-600 text-green-700">
-          ✓
-        </span>
-        <span>{item}</span>
-      </li>
-    ))}
-  </ul>
-</div>
+    <ul className="mt-4 space-y-3">
+      {spot.checklist.map((item, index) => (
+        <li key={index} className="flex items-center gap-3">
+          <span className="flex h-6 w-6 items-center justify-center rounded border">
+            ✓
+          </span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
           
 {spot.visited && (
 <div className="mt-6 rounded-xl border bg-white p-4 shadow-sm sm:mt-8 sm:p-6">

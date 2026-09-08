@@ -102,6 +102,11 @@ export default function SpotCard({ spot }: SpotCardProps) {
     {spot.difficultyLevel === 4 && "やや難しい"}
     {spot.difficultyLevel === 5 && "難しい"}
   </p>
+  {spot.id === 15 && (
+  <p className="mt-2 inline-block rounded-full bg-sky-50 px-3 py-1 text-sm font-bold text-sky-800">
+    ☀️ 日帰り可能
+  </p>
+)}
 </div>
 <div className="mt-auto pt-4">
   <Link

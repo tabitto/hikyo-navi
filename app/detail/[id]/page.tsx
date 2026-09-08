@@ -122,6 +122,16 @@ export default async function DetailPage({ params }: Props) {
     旅行前に最新の公式情報をご確認ください。
   </div>
 )}
+   {spot.id === 15 && (
+  <div className="mt-4 rounded-xl border border-sky-200 bg-sky-50 p-4">
+    <p className="text-lg font-bold text-sky-900">
+      ☀️ 日帰り可能
+    </p>
+    <p className="mt-1 text-sm text-sky-800">
+      伊豆急下田駅から日帰りできます
+    </p>
+  </div>
+)}       
           <div className="mt-4 rounded-xl bg-green-50 p-4">
   <p className="text-sm font-bold text-green-800">
     車なしアクセス難易度
@@ -235,6 +245,7 @@ export default async function DetailPage({ params }: Props) {
           <hr className="my-8" />
 
         
+          {spot.category !== "車なし穴場" && (
           <div
   id="access"
   className="scroll-mt-4 mt-5 rounded-xl border border-blue-200 bg-blue-50 p-4 sm:mt-6 sm:p-6">
@@ -272,6 +283,7 @@ export default async function DetailPage({ params }: Props) {
 </div>
 
 </div>
+)}
           <hr className="my-8" />
 
           <h2
@@ -288,7 +300,7 @@ export default async function DetailPage({ params }: Props) {
 <h3 className="mb-4 text-xl font-bold">
   🚩 行きのルート
 </h3>
-{spot.id === 14 && (
+{(spot.id === 14 || spot.id === 15) && (
   <p className="mt-1 text-lg font-bold text-green-700">
     平日・休日共通
   </p>
@@ -421,7 +433,7 @@ export default async function DetailPage({ params }: Props) {
       <h3 className="mb-4 mt-8 text-xl font-bold">
         🏠 帰りのルート
       </h3>
-      {spot.id === 14 && (
+      {(spot.id === 14 || spot.id === 15) && (
   <p className="mt-2 text-lg font-bold text-green-700">
     平日・休日共通
   </p>

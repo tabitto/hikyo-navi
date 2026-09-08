@@ -101,12 +101,16 @@ if (sort === "walking") {
 
           <Link
   href={`/search?prefecture=${encodeURIComponent(
-  prefecture ?? ""
-)}&difficulty=${encodeURIComponent(
-  difficulty ?? ""
-)}&keyword=${encodeURIComponent(
-  keyword ?? ""
-)}&sort=${encodeURIComponent(sort ?? "")}`}
+    prefecture ?? ""
+  )}&difficulty=${encodeURIComponent(
+    difficulty ?? ""
+  )}&keyword=${encodeURIComponent(
+    keyword ?? ""
+  )}&sort=${encodeURIComponent(
+    sort ?? ""
+  )}&category=${encodeURIComponent(
+    category ?? ""
+  )}`}
   className="text-green-700 underline hover:text-green-900"
 >
   検索条件を変更する
@@ -190,8 +194,10 @@ if (sort === "walking") {
   )}&keyword=${encodeURIComponent(
     keyword ?? ""
   )}&sort=${encodeURIComponent(
-    sort ?? ""
-  )}&page=${pageNumber}`}
+  sort ?? ""
+)}&category=${encodeURIComponent(
+  category ?? ""
+)}&page=${pageNumber}`}
       className={`rounded-lg px-4 py-2 ${
         currentPage === pageNumber
           ? "bg-green-700 text-white"

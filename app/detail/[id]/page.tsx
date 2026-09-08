@@ -40,7 +40,10 @@ export default async function DetailPage({ params }: Props) {
   className="min-h-screen bg-white sm:bg-green-50"
 >
       <div className="mx-auto max-w-5xl px-1 py-2 sm:p-8">
-        <Link href="/results" className="text-green-700 underline">
+        <Link
+  href={spot.category === "車なし穴場" ? "/results?category=車なし穴場" : "/results"}
+  className="text-green-700 underline"
+>
           ← 検索結果へ戻る
         </Link>
 
@@ -122,7 +125,7 @@ export default async function DetailPage({ params }: Props) {
     旅行前に最新の公式情報をご確認ください。
   </div>
 )}
-   {spot.id === 15 && (
+   {(spot.id === 15 || spot.id === 16) && (
   <div className="mt-4 rounded-xl border border-sky-200 bg-sky-50 p-4">
     <p className="text-lg font-bold text-sky-900">
       ☀️ 日帰り可能
@@ -297,16 +300,86 @@ export default async function DetailPage({ params }: Props) {
   現在の交通情報をもとにした、車を使わず訪れるための参考ルートです。
 </p>
 
-<h3 className="mb-4 text-xl font-bold">
-  🚩 行きのルート
-</h3>
+{!("routePatterns" in spot && spot.routePatterns) && (
+  <h3 className="mb-4 text-xl font-bold">
+    🚩 行きのルート
+  </h3>
+)}
 {(spot.id === 14 || spot.id === 15) && (
   <p className="mt-1 text-lg font-bold text-green-700">
     平日・休日共通
   </p>
 )}
+{"routePatterns" in spot && spot.routePatterns && (
+  <div className="space-y-8">
+    {spot.routePatterns.map((pattern, patternIndex) => (
+      <div
+        key={patternIndex}
+        className="rounded-xl border border-green-200 bg-green-50 p-4 sm:p-6"
+      >
+        <h3 className="text-xl font-bold text-green-900">
+          📅 {pattern.label}
+        </h3>
 
-          {"routeAlternatives" in spot && spot.routeAlternatives ? (
+        <p className="mt-1 text-sm font-bold text-amber-700">
+          {pattern.note}
+        </p>
+
+        <h4 className="mt-6 text-lg font-bold">
+          🚩 行き
+        </h4>
+
+        <div className="mt-4 space-y-4">
+          {pattern.outbound.map((item, index) => (
+            <div
+              key={index}
+              className="border-l-4 border-green-300 pl-4"
+            >
+              <p className="text-lg font-bold text-green-700">
+                {item.time}
+              </p>
+
+              <p className="font-bold">
+                {item.title}
+              </p>
+
+              <p className="mt-1 text-sm leading-6 text-gray-700">
+                {item.detail}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <h4 className="mt-8 text-lg font-bold">
+          🏠 帰り
+        </h4>
+
+        <div className="mt-4 space-y-4">
+          {pattern.inbound.map((item, index) => (
+            <div
+              key={index}
+              className="border-l-4 border-green-300 pl-4"
+            >
+              <p className="text-lg font-bold text-green-700">
+                {item.time}
+              </p>
+
+              <p className="font-bold">
+                {item.title}
+              </p>
+
+              <p className="mt-1 text-sm leading-6 text-gray-700">
+                {item.detail}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+)}
+          {"routePatterns" in spot && spot.routePatterns ? null :
+ "routeAlternatives" in spot && spot.routeAlternatives ? (
   <div className="grid gap-6 md:grid-cols-2">
     {spot.routeAlternatives.map((alternative, alternativeIndex) => (
       <div
@@ -428,7 +501,9 @@ export default async function DetailPage({ params }: Props) {
   </div>
 )}
 
- {spot.returnRoute && spot.returnRoute.length > 0 && (
+ {!("routePatterns" in spot && spot.routePatterns) &&
+  spot.returnRoute &&
+  spot.returnRoute.length > 0 && (
     <>
       <h3 className="mb-4 mt-8 text-xl font-bold">
         🏠 帰りのルート
